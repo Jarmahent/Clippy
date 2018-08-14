@@ -1,0 +1,15 @@
+.container {
+  text-align: center;
+  width:100%;
+  margin:auto;
+}
+
+.h2{
+  color:red;
+}
+
+.clipboardImage{
+  height: 312px;
+  width: 312px;
+
+}
