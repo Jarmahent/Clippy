@@ -6,9 +6,10 @@ import App from './containers/App';
 import HomePage from './containers/HomePage';
 import CounterPage from './containers/CounterPage';
 import ClippyPage from './containers/ClippyPage'
-
+import ExitBar from './components/ExitBar'
 export default () => (
   <App>
+    <ExitBar/>
     <Switch>
       <Route exact path={routes.CLIPPY} component={ClippyPage} />
       <Route exact path={routes.COUNTER} component={CounterPage} />

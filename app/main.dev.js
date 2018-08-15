@@ -64,9 +64,10 @@ app.on('ready', async () => {
     show: false,
     width: 1024,
     height: 728,
+    titleBarStyle: 'hidden',
     frame: false
   });
-
+  mainWindow.setMenu(null);
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
   // @TODO: Use 'ready-to-show' event
@@ -83,6 +84,6 @@ app.on('ready', async () => {
     mainWindow = null;
   });
 
-  const menuBuilder = new MenuBuilder(mainWindow);
-  menuBuilder.buildMenu();
+  // const menuBuilder = new MenuBuilder(mainWindow);
+  // menuBuilder.buildMenu();
 });
