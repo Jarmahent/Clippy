@@ -12,8 +12,10 @@ export default class Clippy extends Component<Props> {
   render() {
     return (
       <div className={styles.container} data-tid="container">
-      <img className={styles.clipboardImage}src={require('./img/clipboard.png')} />
-        <h2 className={styles.h2}>Welcome To Clippy!</h2>
+      <div className={styles.imgContainer}><img className={styles.clipboardImage}src={require('./img/clipboard.png')} />
+        <h1>CLIPPY</h1>
+      </div>
+
       </div>
     );
   }

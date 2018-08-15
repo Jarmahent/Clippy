@@ -5,7 +5,10 @@
 @import "~@fortawesome/fontawesome-free/css/all.css";
 
 body {
-  position: relative;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
   color: white;
   height: 100vh;
   background-color: #232c39;

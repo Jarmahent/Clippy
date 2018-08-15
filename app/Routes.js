@@ -10,9 +10,10 @@ import ClippyPage from './containers/ClippyPage'
 export default () => (
   <App>
     <Switch>
+      <Route exact path={routes.CLIPPY} component={ClippyPage} />
       <Route exact path={routes.COUNTER} component={CounterPage} />
       <Route exact path={routes.HOME} component={HomePage} />
-      <Route exact path={routes.CLIPPY} component={ClippyPage} />
+
     </Switch>
   </App>
 );
