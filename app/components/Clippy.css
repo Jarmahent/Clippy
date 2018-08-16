@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
 .container {
   display: flex;
   height: 100%;
@@ -7,9 +9,11 @@
 }
 
 .imgContainer {
+  font-family: 'Pacifico', sans-serif;
+  font-weight: bold;
   text-align: center;
   color: black;
-  font-size: 25px;
+  font-size: 35px;
 }
 
 .clipboardImage {

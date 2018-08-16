@@ -18,7 +18,7 @@ export default class Clippy extends Component<Props> {
             className={styles.clipboardImage}
             src={logoImg}
           />
-          <h1>CLIPPY</h1>
+          <h1>Clippy</h1>
         </div>
       </div>
     );
