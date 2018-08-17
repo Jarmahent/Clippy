@@ -11,10 +11,7 @@ import DragBar from './components/DragBar';
 
 export default () => (
   <App>
-    <div>
-      <DragBar />
-      {process.platform !== 'darwin' ? <ExitBar /> : <div />}
-    </div>
+    <div>{process.platform !== 'darwin' ? <ExitBar /> : <DragBar />}</div>
 
     <Switch>
       <Route exact path={routes.CLIPPY} component={ClippyPage} />

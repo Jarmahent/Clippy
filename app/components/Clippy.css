@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
 .container {
   display: flex;
@@ -9,10 +11,13 @@
 }
 
 .imgContainer {
-  font-family: 'Pacifico', sans-serif;
+  -webkit-text-stroke-color: #2b2b2b;
+  -webkit-text-stroke-width: 1px;
+  font-family: 'Varela Round', sans-serif;
+  /* font-family: 'Pacifico', sans-serif; */
   font-weight: bold;
   text-align: center;
-  color: black;
+  color: #2b2b2b;
   font-size: 35px;
 }
 
