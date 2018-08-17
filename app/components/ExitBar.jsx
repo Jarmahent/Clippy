@@ -9,15 +9,6 @@ class ExitBar extends React.Component {
   closeWindow() {
     window.close();
   }
-  maximizeWindow(){
-    if(window.isMaximized()){
-      window.unmaximize();
-    }
-    else{
-      window.maximize();
-    }
-
-  }
 
   minimizeWindow(){
     window.minimize();
@@ -30,7 +21,6 @@ class ExitBar extends React.Component {
       <div className={styles.ExitBarLength}>
               <nav className={styles.ExitBar}>
                 <a  className={styles.Spacing} href="#" onClick={this.minimizeWindow}>_</a>
-                <a  className={styles.Spacing} href="#" onClick={this.maximizeWindow}>⛶</a>
                 <a className={styles.Spacing} href="#" onClick={this.closeWindow}>❌</a>
               </nav>
       </div>
