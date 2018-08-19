@@ -3430,6 +3430,10 @@ electron-chromedriver@~1.8.0:
     electron-download "^4.1.0"
     extract-zip "^1.6.5"
 
+electron-clipboard-watcher@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/electron-clipboard-watcher/-/electron-clipboard-watcher-1.0.1.tgz#5fc2d8e2bbfd7341f1f2c3c5315abd3d6a6f2f56"
+
 electron-debug@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/electron-debug/-/electron-debug-2.0.0.tgz#3059a6557acbfb091f138d83875f57bac80cea6d"

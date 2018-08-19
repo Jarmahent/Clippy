@@ -13,6 +13,8 @@
 import { app, BrowserWindow } from 'electron';
 import MenuBuilder from './menu';
 
+const clipboardWatcher = require('electron-clipboard-watcher');
+
 let mainWindow = null;
 
 if (process.env.NODE_ENV === 'production') {
@@ -43,6 +45,21 @@ const installExtensions = async () => {
 /**
  * Add event listeners...
  */
+
+clipboardWatcher({
+  // (optional) delay in ms between polls
+  watchDelay: 500, // milliseconds
+
+  // handler for when image data is copied into the clipboard
+  onImageChang: nativeImage => {
+    console.log(nativeImage);
+  },
+
+  // handler for when text data is copied into the clipboard
+  onTextChange: text => {
+    console.log(text);
+  }
+});
 
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
