@@ -1,6 +1,6 @@
-let Database = require('better-sqlite3');
+const Database = require('better-sqlite3');
 
-//let db = new Database('./copydata.db'); //Make sure to have the location of the db relative to the main.dev.js file
+// let db = new Database('./copydata.db'); //Make sure to have the location of the db relative to the main.dev.js file
 
 // INSERT INTO copyData VALUES (1, "datahere", "datehere")
 // Use exec to write data nd use prepare to readt data
@@ -8,39 +8,35 @@ let Database = require('better-sqlite3');
 // console.log(db.exec("INSERT INTO copyData (data, date) VALUES ('javascriptdata', 'javascriptdate')"))
 // console.log(db.prepare("SELECT * FROM copyData").get("id"))
 
-
-
-class DbHandler{
-  constructor(dbConnection){
-    this.dbConnection = new Database('./copydata.db'); //Make sure to have the location of the db relative to the main.dev.js file
+class DbHandler {
+  constructor() {
+    this.dbConnection = new Database('./copydata.db'); // Make sure to have the location of the db relative to the main.dev.js file
   }
-  inserClipboard(data, date){
 
-    try{
-      this.dbConnection.exec(`INSERT INTO copyData (data, date) VALUES (${data}, ${date})`);
+  insertClipboard(data, date) {
+    try {
+      this.dbConnection.exec(
+        `INSERT INTO copyData (data, date) VALUES ('${data}', '${date}')`
+      );
       this.dbConnection.close();
 
-      return 1
-    }catch(err){
-      throw err
+      return 1;
+    } catch (err) {
+      throw err;
     }
-
   }
-   getAllData(){
 
-    try{
-      let allData = this.dbConnection.prepare("SELECT * FROM copyData").get();
+  getAllData() {
+    try {
+      const allData = this.dbConnection.prepare('SELECT * FROM copyData').get();
       this.dbConnection.close();
-      return allData
-    }catch(err){
-      throw err
+      return allData;
+    } catch (err) {
+      throw err;
     }
-
-
   }
 }
 
-
-
 const db = new DbHandler();
-console.log(db.getAllData());
+// console.log(db.getAllData());
+db.insertClipboard('datahere', 'datehere');
