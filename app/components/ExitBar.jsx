@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import routes from '../constants/routes.json';
 import styles from './ExitBar.css'
+
 const window = require('electron').remote.getCurrentWindow()
 
 class ExitBar extends React.Component {
