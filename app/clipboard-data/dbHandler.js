@@ -1,14 +1,6 @@
 const Database = require('better-sqlite3');
 
-// let db = new Database('./copydata.db'); //Make sure to have the location of the db relative to the main.dev.js file
-
-// INSERT INTO copyData VALUES (1, "datahere", "datehere")
-// Use exec to write data nd use prepare to readt data
-
-// console.log(db.exec("INSERT INTO copyData (data, date) VALUES ('javascriptdata', 'javascriptdate')"))
-// console.log(db.prepare("SELECT * FROM copyData").get("id"))
-
-class DbHandler {
+export default class DbHandler {
   constructor() {
     this.dbConnection = new Database('./copydata.db'); // Make sure to have the location of the db relative to the main.dev.js file
   }
@@ -37,6 +29,6 @@ class DbHandler {
   }
 }
 
-const db = new DbHandler();
+// const db = new DbHandler();
 // console.log(db.getAllData());
-db.insertClipboard('datahere', 'datehere');
+// db.insertClipboard('datahere', 'datehere');

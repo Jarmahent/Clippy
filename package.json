@@ -208,6 +208,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "better-sqlite3": "^4.1.4",
     "devtron": "^1.4.0",
     "electron-clipboard-watcher": "^1.0.1",
     "electron-debug": "^2.0.0",

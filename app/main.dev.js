@@ -11,6 +11,8 @@
  * @flow
  */
 import { app, BrowserWindow } from 'electron';
+// import {DbHandler} from './clipboard-data/dbHandler'
+
 import MenuBuilder from './menu';
 
 const clipboardWatcher = require('electron-clipboard-watcher');
