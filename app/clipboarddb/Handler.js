@@ -8,14 +8,10 @@ class DbHandler {
   insertClipboard(...args) {
     try {
 
-      let parseString = args.map((data) => `'${data}'`).join(',') //Map every argument to '(?)'
-
-      this.dbConnection.exec(
-        `INSERT INTO copyData (data, date) VALUES (${parseString})`
+      this.dbConnection.prepare(
+        'INSERT INTO copyData (data, date) VALUES (?, ?)', args
       );
-      console.log(parseString)
 
-      // console.log(Object.getOwnPropertyNames(this.dbConnection.exec))
       return 1;
     } catch (err) {
       throw err;

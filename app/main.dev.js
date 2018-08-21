@@ -11,13 +11,18 @@
  * @flow
  */
 import { app, BrowserWindow } from 'electron';
-// import {DbHandler} from './clipboard-data/dbHandler'
+import DbHandler from './clipboarddb/Handler'
 
 import MenuBuilder from './menu';
 
-const clipboardWatcher = require('electron-clipboard-watcher');
+const clipboardWatcher = require('electron-clipboard-watcher'); //Watch clipboard for changes
 
+const db = new DbHandler(); //Database handler
+
+let date = new Date();
 let mainWindow = null;
+let clipboardData = "";
+
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -44,22 +49,23 @@ const installExtensions = async () => {
   ).catch(console.log);
 };
 
-/**
- * Add event listeners...
- */
-
 clipboardWatcher({
-  // (optional) delay in ms between polls
+
   watchDelay: 500, // milliseconds
 
-  // handler for when image data is copied into the clipboard
-  onImageChang: nativeImage => {
+  onImageChange: nativeImage => {
     console.log(nativeImage);
   },
 
-  // handler for when text data is copied into the clipboard
   onTextChange: text => {
     console.log(text);
+  //   if(text == clipboardData){
+  //     console.log("Text is the same, skipping...")
+  //   }else{
+  //     console.log(`Storing: ${text}`)
+  //     db.insertClipboard(text, date);
+  //     clipboardData = text;
+  //   }
   }
 });
 
