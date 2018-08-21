@@ -11,18 +11,16 @@
  * @flow
  */
 import { app, BrowserWindow } from 'electron';
-import DbHandler from './clipboarddb/Handler'
+import DbHandler from './clipboarddb/Handler';
 
 import MenuBuilder from './menu';
 
-const clipboardWatcher = require('electron-clipboard-watcher'); //Watch clipboard for changes
+const clipboardWatcher = require('electron-clipboard-watcher'); // Watch clipboard for changes
 
-const db = new DbHandler(); //Database handler
+const db = new DbHandler(); // Database handler
 
-let date = new Date();
+const date = new Date();
 let mainWindow = null;
-let clipboardData = "";
-
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -56,21 +54,18 @@ the sqlite3 database
 */
 
 clipboardWatcher({
-
   watchDelay: 500, // milliseconds
 
   onImageChange: nativeImage => {
     console.log(nativeImage);
   },
   onTextChange: text => {
-    let parsedText = db.parseToSingleLine(text);
+    const parsedText = db.parseToSingleLine(text);
     console.log(db.insertClipboardData(parsedText.toString(), date.toString()));
   }
 });
 
-
-//End Handler
-
+// End Handler
 
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even

@@ -1,24 +1,28 @@
 const Database = require('better-sqlite3');
 
-export default class DbHandler { //Add export default for yarndev
+export default class DbHandler {
+  // Add export default for yarndev
   constructor() {
     this.dbConnection = new Database('./app/clipboarddb/copydata.db');
   }
 
-  parseToSingleLine(text){ //Replace all multilined text with ~$~
-    let singleLineParse = text.replace(/(?:\r\n|\r|\n)/g, "~$~");
-    return singleLineParse
+  static parseToSingleLine(text) {
+    // Replace all multilined text with ~$~
+    /* eslint-disable */
+    const singleLineParse = text.replace(/(?:\r\n|\r|\n)/g, '~$~');
+    return singleLineParse;
   }
 
-  parseToMultiline(text){
-      let multiLineParse = text.replace(/(\~\$\~)/g);
-      return multiLineParse
+  static parseToMultiline(text) {
+    /* eslint-disable */
+    const multiLineParse = text.replace(/(\~\$\~)/g);
+    return multiLineParse;
   }
 
-  insertClipboardData(...args) { //Unpack args
+  insertClipboardData(...args) {
+    // Unpack args
     try {
-
-      let statement = this.dbConnection.prepare(
+      const statement = this.dbConnection.prepare(
         'INSERT INTO copyData (data, date) VALUES (?, ?)'
       );
 
@@ -39,9 +43,8 @@ export default class DbHandler { //Add export default for yarndev
       throw err;
     }
   }
-
 }
 //
 // const db = new DbHandler();
-// // // console.log(db.getAllData());
+// console.log(db.getAllData());
 // console.log(db.insertClipboardData('new', 'newdate'));
