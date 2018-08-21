@@ -49,6 +49,12 @@ const installExtensions = async () => {
   ).catch(console.log);
 };
 
+/*
+Handler for clipboard events and
+where the data is put into
+the sqlite3 database
+*/
+
 clipboardWatcher({
 
   watchDelay: 500, // milliseconds
@@ -56,18 +62,15 @@ clipboardWatcher({
   onImageChange: nativeImage => {
     console.log(nativeImage);
   },
-
   onTextChange: text => {
-    console.log(text);
-  //   if(text == clipboardData){
-  //     console.log("Text is the same, skipping...")
-  //   }else{
-  //     console.log(`Storing: ${text}`)
-  //     db.insertClipboard(text, date);
-  //     clipboardData = text;
-  //   }
+    let parsedText = db.parseToSingleLine(text);
+    console.log(db.insertClipboardData(parsedText.toString(), date.toString()));
   }
 });
+
+
+//End Handler
+
 
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
