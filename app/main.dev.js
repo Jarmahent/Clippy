@@ -10,17 +10,19 @@
  *
  * @flow
  */
-import { app, BrowserWindow } from 'electron';
+
+import { app, BrowserWindow, Tray, ipcMain } from 'electron';
 import DbHandler from './clipboarddb/Handler';
 
-import MenuBuilder from './menu';
+// import MenuBuilder from './menu';
 
 const clipboardWatcher = require('electron-clipboard-watcher'); // Watch clipboard for changes
 
 const db = new DbHandler(); // Database handler
-
 const date = new Date();
+
 let mainWindow = null;
+let tray = null;
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -68,6 +70,53 @@ clipboardWatcher({
 
 // End Handler
 
+const toggleWindow = () => {
+  if (mainWindow.isVisible()) {
+    mainWindow.hide();
+  } else {
+    showWindow();
+  }
+};
+
+ipcMain.on('show-window', () => {
+  showWindow();
+});
+
+const showWindow = () => {
+  /* eslint-disable */
+
+  const position = getWindowPosition();
+  mainWindow.setPosition(position.x, position.y, false);
+  mainWindow.show();
+  mainWindow.focus();
+};
+
+const getWindowPosition = () => {
+  const windowBounds = mainWindow.getBounds();
+  const trayBounds = tray.getBounds();
+
+  // Center window horizontally below the tray icon
+  const x = Math.round(
+    trayBounds.x + trayBounds.width / 2 - windowBounds.width / 2
+  );
+
+  // Position window 4 pixels vertically below the tray icon
+  const y = Math.round(trayBounds.y + trayBounds.height + 4);
+
+  return { x: x, y: y };
+};
+
+const createTray = () => {
+  tray = new Tray('./app/trayicon/clipboard.png');
+  /* eslint-disable */
+
+  tray.on('click', function(event) {
+    toggleWindow();
+  });
+
+  tray.setToolTip('Clipboard');
+};
+
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
   // after all windows have been closed
@@ -87,10 +136,10 @@ app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     resizable: false,
     show: false,
-    width: 500,
-    height: 755,
-    titleBarStyle: 'hidden',
-    frame: false
+    width: 200,
+    height: 455,
+    frame: false,
+    transparent: true
   });
   mainWindow.setMenu(null);
   mainWindow.loadURL(`file://${__dirname}/app.html`);
@@ -109,6 +158,8 @@ app.on('ready', async () => {
     mainWindow = null;
   });
 
-  const menuBuilder = new MenuBuilder(mainWindow);
-  menuBuilder.buildMenu();
+  createTray();
+
+  // const menuBuilder = new MenuBuilder(mainWindow);
+  // menuBuilder.buildMenu();
 });

@@ -6,12 +6,12 @@ import App from './containers/App';
 import HomePage from './containers/HomePage';
 import CounterPage from './containers/CounterPage';
 import ClippyPage from './containers/ClippyPage';
-import ExitBar from './components/ExitBar';
-import DragBar from './components/DragBar';
+// import ExitBar from './components/ExitBar';
+// import DragBar from './components/DragBar';
 
 export default () => (
   <App>
-    <div>{process.platform !== 'darwin' ? <ExitBar /> : <DragBar />}</div>
+    {/* <div>{process.platform !== 'darwin' ? <ExitBar /> : <DragBar />}</div> */}
 
     <Switch>
       <Route exact path={routes.CLIPPY} component={ClippyPage} />
