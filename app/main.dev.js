@@ -60,7 +60,8 @@ clipboardWatcher({
     console.log(nativeImage);
   },
   onTextChange: text => {
-    const parsedText = db.parseToSingleLine(text);
+    const parsedText = DbHandler.parseToSingleLine(text);
+    console.log(parsedText);
     console.log(db.insertClipboardData(parsedText.toString(), date.toString()));
   }
 });

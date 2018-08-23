@@ -7,7 +7,6 @@ export default class DbHandler {
   }
 
   static parseToSingleLine(text) {
-    // Replace all multilined text with ~$~
     /* eslint-disable */
     const singleLineParse = text.replace(/(?:\r\n|\r|\n)/g, '~$~');
     return singleLineParse;
@@ -15,8 +14,12 @@ export default class DbHandler {
 
   static parseToMultiline(text) {
     /* eslint-disable */
-    const multiLineParse = text.replace(/(\~\$\~)/g);
-    return multiLineParse;
+    if (text.includes('~$~') === true) {
+      const multiLineParse = text.replace(/(\~\$\~)/g);
+      return multiLineParse;
+    } else {
+      return 'No parsing neccesary';
+    }
   }
 
   insertClipboardData(...args) {
@@ -48,3 +51,4 @@ export default class DbHandler {
 // const db = new DbHandler();
 // console.log(db.getAllData());
 // console.log(db.insertClipboardData('new', 'newdate'));
+// console.log(DbHandler.parseToSingleLine("nothing"));
