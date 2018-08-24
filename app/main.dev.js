@@ -62,6 +62,8 @@ clipboardWatcher({
     console.log(nativeImage);
   },
   onTextChange: text => {
+    mainWindow.webContents.send('db-ch', text.toString());
+
     const parsedText = DbHandler.parseToSingleLine(text);
     console.log(parsedText);
     console.log(db.insertClipboardData(parsedText.toString(), date.toString()));
@@ -107,7 +109,7 @@ const getWindowPosition = () => {
 };
 
 const createTray = () => {
-  tray = new Tray('./app/trayicon/clipboard.png');
+  tray = new Tray('./app/trayicon/tray22.png');
   /* eslint-disable */
 
   tray.on('click', function(event) {

@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import { ipcRenderer } from 'electron';
 import styles from './Clippy.css';
 
 const logoImg = require('./img/clipboard.png');
@@ -10,6 +11,12 @@ export default class Clippy extends Component<Props> {
   props: Props;
 
   render() {
+    ipcRenderer.on('db-ch', (event, args) => {
+      console.log(event);
+      console.log(args);
+      console.log('Received!');
+    });
+
     return (
       <div className={styles.container} data-tid="container">
         <div className={styles.imgContainer}>
