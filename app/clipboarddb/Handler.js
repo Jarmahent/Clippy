@@ -1,4 +1,4 @@
-const Database = require('better-sqlite3');
+import Database from 'better-sqlite3';
 
 export default class DbHandler {
   // Add export default for yarndev
