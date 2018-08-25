@@ -39,15 +39,17 @@ export default class DbHandler {
 
   getAllData() {
     try {
-      const allData = this.dbConnection.prepare('SELECT * FROM copyData').get();
-      this.dbConnection.close();
-      return allData;
+      const statement = this.dbConnection
+        .prepare('SELECT * FROM copyData ORDER BY id DESC LIMIT 10')
+        .all();
+
+      return statement;
     } catch (err) {
       throw err;
     }
   }
 }
-//
+
 // const db = new DbHandler();
 // console.log(db.getAllData());
 // console.log(db.insertClipboardData('new', 'newdate'));

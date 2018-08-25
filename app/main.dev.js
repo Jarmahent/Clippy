@@ -138,7 +138,7 @@ app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     resizable: false,
     show: false,
-    width: 200,
+    width: 300,
     height: 455,
     frame: false,
     transparent: true
@@ -158,6 +158,10 @@ app.on('ready', async () => {
 
   mainWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  ipcMain.once('db-init', (event, args) => {
+    mainWindow.webContents.send('db-init', db.getAllData());
   });
 
   createTray();

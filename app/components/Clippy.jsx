@@ -9,7 +9,11 @@ export default class Clippy extends Component {
   };
 
   componentDidMount() {
-    console.log('Mounted');
+    ipcRenderer.send('db-init', 1);
+
+    ipcRenderer.once('db-init', async (event, args) => {
+      console.log(args); // Attatch these args to array
+    });
   }
 
   componentDidUpdate() {
