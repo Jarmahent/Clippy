@@ -3,29 +3,38 @@ import React, { Component } from 'react';
 import { ipcRenderer } from 'electron';
 import styles from './Clippy.css';
 
-const logoImg = require('./img/clipboard.png');
+export default class Clippy extends Component {
+  state = {
+    clipArray: ['argument1', 'argument2']
+  };
 
-type Props = {};
+  componentDidMount() {
+    console.log('Mounted');
+  }
 
-export default class Clippy extends Component<Props> {
-  props: Props;
+  componentDidUpdate() {
+    console.log('Updated!');
+  }
 
   render() {
-    ipcRenderer.on('db-ch', (event, args) => {
-      console.log(event);
-      console.log(args);
-      console.log('Received!');
+    /* eslint-disable */
+    ipcRenderer.once('db-ch', (event, args) => {
+      this.setState(prevState => ({
+        clipArray: [...prevState.clipArray, args]
+      }));
     });
 
     return (
       <div className={styles.container} data-tid="container">
-        <div className={styles.imgContainer}>
-          <img
-            alt="imageHere"
-            className={styles.clipboardImage}
-            src={logoImg}
-          />
-          <h1>CLIPPY</h1>
+        <div className={styles.title}>Recent Copies</div>
+        <div className={styles.copyList}>
+          <ul>
+            {this.state.clipArray.map((name, index) => (
+              <li className={styles.copies} key={name}>
+                {name}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     );
