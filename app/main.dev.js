@@ -64,9 +64,7 @@ clipboardWatcher({
   onTextChange: text => {
     mainWindow.webContents.send('db-ch', text.toString());
 
-    const parsedText = DbHandler.parseToSingleLine(text);
-    console.log(parsedText);
-    console.log(db.insertClipboardData(parsedText.toString(), date.toString()));
+    console.log(db.insertClipboardData(text.toString(), date.toString()));
   }
 });
 

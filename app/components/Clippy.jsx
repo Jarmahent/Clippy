@@ -11,7 +11,7 @@ export default class Clippy extends Component {
       const copyArray = [];
       /* eslint-disable */
       args.map((name, index) => {
-        copyArray.unshift(args[index].data);
+        copyArray.push(args[index].data);
       });
       /* eslint-disable */
       this.setState(prevState => ({
@@ -28,20 +28,18 @@ export default class Clippy extends Component {
     console.log('Updated!');
     ipcRenderer.once('db-ch', (event, args) => {
       this.setState(prevState => ({
-        clipArray: [...prevState.clipArray, args]
+        clipArray: [args, ...prevState.clipArray]
       }));
     });
   }
 
   render() {
-    let reversedArray = this.state.clipArray.reverse();
-
     return (
       <div className={styles.container} data-tid="container">
         <div className={styles.title}>Recent Copies</div>
         <div className={styles.copyList}>
           <ul>
-            {reversedArray.map((name, index) => (
+            {this.state.clipArray.map((name, index) => (
               <li className={styles.copies} key={index}>
                 {name}
               </li>
