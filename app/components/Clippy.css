@@ -20,10 +20,9 @@
 }
 
 .copies {
-  counter-reset: item 6;
   float: left;
   font-family: 'Varela Round', sans-serif;
-
+  user-select: none;
   border-color: red;
   border-top: solid;
   border-width: 1px;
@@ -40,4 +39,10 @@
   border: none;
   font-size: 19px;
   background-color: rgba(103, 95, 95, 0.22);
+}
+
+.copies:active {
+  transition: 0.1s;
+
+  background-color: rgba(103, 95, 95, 0.62);
 }
