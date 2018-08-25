@@ -6,13 +6,11 @@ import App from './containers/App';
 import HomePage from './containers/HomePage';
 import CounterPage from './containers/CounterPage';
 import ClippyPage from './containers/ClippyPage';
-// import ExitBar from './components/ExitBar';
-// import DragBar from './components/DragBar';
+
+// Insert the taskBar here
 
 export default () => (
   <App>
-    {/* <div>{process.platform !== 'darwin' ? <ExitBar /> : <DragBar />}</div> */}
-
     <Switch>
       <Route exact path={routes.CLIPPY} component={ClippyPage} />
       <Route exact path={routes.COUNTER} component={CounterPage} />
