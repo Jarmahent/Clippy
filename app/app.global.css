@@ -5,6 +5,7 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
 body {
+  margin: 0;
   background-image: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
   height: 100vh;
   background-color: white;

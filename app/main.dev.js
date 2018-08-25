@@ -139,7 +139,7 @@ app.on('ready', async () => {
     resizable: false,
     show: false,
     width: 300,
-    height: 455,
+    height: 465,
     frame: false,
     transparent: true
   });

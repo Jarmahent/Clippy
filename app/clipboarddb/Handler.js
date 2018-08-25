@@ -40,7 +40,7 @@ export default class DbHandler {
   getAllData() {
     try {
       const statement = this.dbConnection
-        .prepare('SELECT * FROM copyData ORDER BY id DESC LIMIT 10')
+        .prepare('SELECT * FROM copyData ORDER BY id DESC LIMIT 20')
         .all();
 
       return statement;

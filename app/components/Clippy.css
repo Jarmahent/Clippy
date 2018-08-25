@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
 .container {
-  overflow: auto;
+  overflow: scroll;
   height: 100%;
   width: 100%;
 }
@@ -20,6 +20,7 @@
 }
 
 .copies {
+  counter-reset: item 6;
   float: left;
   font-family: 'Varela Round', sans-serif;
 

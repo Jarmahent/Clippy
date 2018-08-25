@@ -5,14 +5,21 @@ import styles from './Clippy.css';
 
 export default class Clippy extends Component {
   state = {
-    clipArray: ['argument1', 'argument2']
+    clipArray: []
   };
 
   componentDidMount() {
     ipcRenderer.send('db-init', 1);
-
-    ipcRenderer.once('db-init', async (event, args) => {
-      console.log(args); // Attatch these args to array
+    ipcRenderer.on('db-init', (event, args) => {
+      const copyArray = [];
+      /* eslint-disable */
+      args.map((name, index) => {
+        copyArray.unshift(args[index].data);
+      });
+      /* eslint-disable */
+      this.setState(prevState => ({
+        clipArray: copyArray
+      }));
     });
   }
 
@@ -32,13 +39,13 @@ export default class Clippy extends Component {
       <div className={styles.container} data-tid="container">
         <div className={styles.title}>Recent Copies</div>
         <div className={styles.copyList}>
-          <ul>
+          <ol>
             {this.state.clipArray.map((name, index) => (
-              <li className={styles.copies} key={name}>
+              <li className={styles.copies} key={index}>
                 {name}
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       </div>
     );
