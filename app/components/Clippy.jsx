@@ -13,8 +13,8 @@ export default class Clippy extends Component {
       args.map((name, index) => {
         copyArray.push(args[index].data);
       });
-      /* eslint-disable */
-      this.setState(prevState => ({
+
+      this.setState(() => ({
         clipArray: copyArray
       }));
     });
