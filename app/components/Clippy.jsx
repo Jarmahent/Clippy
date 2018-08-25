@@ -9,10 +9,8 @@ export default class Clippy extends Component {
     ipcRenderer.send('db-init', 1);
     ipcRenderer.on('db-init', (event, args) => {
       const copyArray = [];
-      /* eslint-disable */
-      args.map((name, index) => {
-        copyArray.push(args[index].data);
-      });
+
+      args.map((name, index) => copyArray.push(args[index].data));
 
       this.setState(() => ({
         clipArray: copyArray
@@ -34,6 +32,8 @@ export default class Clippy extends Component {
   }
 
   render() {
+    /* eslint-disable */
+    // Add a unique key creator for the key
     return (
       <div className={styles.container} data-tid="container">
         <div className={styles.title}>Recent Copies</div>
