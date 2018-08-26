@@ -63,8 +63,11 @@ clipboardWatcher({
   },
   onTextChange: text => {
     mainWindow.webContents.send('db-ch', text.toString());
-
-    console.log(db.insertClipboardData(text.toString(), date.toString()));
+    try {
+      db.insertClipboardData(text.toString(), date.toString());
+    } catch (error) {
+      throw error;
+    }
   }
 });
 
@@ -159,7 +162,7 @@ app.on('ready', async () => {
   });
 
   ipcMain.once('db-init', (event, args) => {
-    mainWindow.webContents.send('db-init', db.getAllData());
+    mainWindow.webContents.send('db-init', db.getAllData(20));
   });
 
   createTray();

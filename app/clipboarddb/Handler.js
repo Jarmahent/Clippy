@@ -37,11 +37,11 @@ export default class DbHandler {
     }
   }
 
-  getAllData() {
+  getAllData(limit) {
     try {
       const statement = this.dbConnection
-        .prepare('SELECT * FROM copyData ORDER BY id DESC LIMIT 20')
-        .all();
+        .prepare('SELECT * FROM copyData ORDER BY id DESC LIMIT ?')
+        .all(limit);
 
       return statement;
     } catch (err) {
