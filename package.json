@@ -55,6 +55,7 @@
       "main.prod.js.map",
       "package.json"
     ],
+    "extraResources": ["app/clipboarddb/copydata.db"],
     "dmg": {
       "contents": [
         {

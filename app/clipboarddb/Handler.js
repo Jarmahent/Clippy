@@ -1,9 +1,16 @@
 import Database from 'better-sqlite3';
+import path from 'path';
+
+// const dbPath = path.resolve(__dirname, 'copydata.db')
+const filepath = path.join(
+  process.resourcesPath,
+  'app/clipboarddb/copydata.db'
+);
 
 export default class DbHandler {
   // Add export default for yarndev
   constructor() {
-    this.dbConnection = new Database('./app/clipboarddb/copydata.db');
+    this.dbConnection = new Database(filepath);
   }
 
   static parseToSingleLine(text) {
