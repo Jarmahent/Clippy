@@ -12,14 +12,8 @@
  */
 
 import { app, BrowserWindow, Tray, ipcMain } from 'electron';
-import DbHandler from './clipboarddb/Handler';
-
-// import MenuBuilder from './menu';
 
 const clipboardWatcher = require('electron-clipboard-watcher'); // Watch clipboard for changes
-
-const db = new DbHandler(); // Database handler
-const date = new Date();
 
 let mainWindow = null;
 let tray = null;
@@ -56,18 +50,12 @@ the sqlite3 database
 */
 
 clipboardWatcher({
-  watchDelay: 500, // milliseconds
-
+  watchDelay: 300, // milliseconds
   onImageChange: nativeImage => {
-    console.log(nativeImage);
+    console.log(nativeImage); // Work on this
   },
   onTextChange: text => {
     mainWindow.webContents.send('db-ch', text.toString());
-    try {
-      db.insertClipboardData(text.toString(), date.toString());
-    } catch (error) {
-      throw error;
-    }
   }
 });
 
@@ -162,7 +150,7 @@ app.on('ready', async () => {
   });
 
   ipcMain.once('db-init', (event, args) => {
-    mainWindow.webContents.send('db-init', db.getAllData(20));
+    // mainWindow.webContents.send('db-init', db.getAllData(20));
   });
 
   createTray();
