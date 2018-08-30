@@ -37,9 +37,8 @@ export default class Clippy extends Component {
     });
   }
 
-  copyToClipboard = () => {
-    console.log('Clicked Div!');
-    console.log(this.ref);
+  copyToClipboard = e => {
+    console.log(e.target.innerHTML);
   };
 
   render() {
@@ -56,9 +55,6 @@ export default class Clippy extends Component {
                   className={styles.copies}
                   key={index}
                   onClick={this.copyToClipboard}
-                  ref={ref => {
-                    this.ref = ref;
-                  }}
                 >
                   {name}
                 </li>
