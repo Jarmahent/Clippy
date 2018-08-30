@@ -149,6 +149,10 @@ app.on('ready', async () => {
     mainWindow = null;
   });
 
+  mainWindow.on('blur', () => {
+    // mainWindow.hide();
+  });
+
   ipcMain.once('db-init', (event, args) => {
     // mainWindow.webContents.send('db-init', db.getAllData(20));
   });

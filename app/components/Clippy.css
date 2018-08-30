@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 .container {
   overflow: scroll;
@@ -7,42 +9,70 @@
   width: 100%;
 }
 
-.title {
+.header {
+  color: #d0d0d0;
+  position: fixed;
+  width: 100%;
+  background-color: #696060;
   text-align: center;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 20px;
   margin: 0;
 }
 
+.footer {
+  text-align: center;
+  color: #d0d0d0;
+  background-color: #696060;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
 .copyList ul {
+  margin-top: 26px;
+  font-size: 15px;
   padding: 0;
 }
 
 .copies {
   float: left;
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   user-select: none;
-  border-color: red;
+  /* border-color: red;
   border-top: solid;
-  border-width: 1px;
+  border-width: 1px; */
   width: 100%;
   overflow: hidden;
   display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
   transition: 0.3s;
-  cursor: copy;
 }
 
 .copies:hover {
   border: none;
-  font-size: 19px;
-  background-color: rgba(103, 95, 95, 0.22);
+  /* font-size: 19px; */
+  /* background-color: rgba(103, 95, 95, 0.22); */
 }
 
-.copies:active {
-  transition: 0.1s;
+.copyList {
+  height: 10%;
+}
 
-  background-color: rgba(103, 95, 95, 0.62);
+.listItemContainer {
+  display: flex;
+  padding-left: 15px;
+  height: 35px;
+  padding-right: 15px;
+}
+
+.listItemContainer:hover {
+  cursor: copy;
+  background-color: rgba(31, 46, 99, 0.12);
+}
+
+.listItemContainer:active {
+  background-color: rgba(31, 46, 99, 0.32);
 }
