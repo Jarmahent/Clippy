@@ -95,16 +95,24 @@ const showWindow = () => {
 const getWindowPosition = () => {
   const windowBounds = mainWindow.getBounds();
   const trayBounds = tray.getBounds();
-
-  // Center window horizontally below the tray icon
-  const x = Math.round(
-    trayBounds.x + trayBounds.width / 2 - windowBounds.width / 2
-  );
-
-  // Position window 4 pixels vertically below the tray icon
-  const y = Math.round(trayBounds.y + trayBounds.height + 4);
-
-  return { x: x, y: y };
+  if (process.platform !== 'darwin') {
+    // Position window 500 pixels vertically above the tray icon Windows
+    const y = Math.round(trayBounds.y + trayBounds.height - 500);
+    // Center window horizontally below the tray icon
+    const x = Math.round(
+      trayBounds.x + trayBounds.width / 2 - windowBounds.width / 2
+    );
+    console.log(x, y);
+    return { x: x, y: y };
+  } else {
+    // Position window 4 pixels vertically below the tray icon Linux And Mac
+    const y = Math.round(trayBounds.y + trayBounds.height + 4);
+    // Center window horizontally below the tray icon
+    const x = Math.round(
+      trayBounds.x + trayBounds.width / 2 - windowBounds.width / 2
+    );
+    return { x: x, y: y };
+  }
 };
 
 const createTray = () => {
