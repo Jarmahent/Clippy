@@ -45,8 +45,8 @@
     ]
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "Clippy",
+    "appId": "org.kevintweaks.clippy",
     "files": [
       "dist/",
       "node_modules/",
@@ -56,7 +56,7 @@
       "package.json"
     ],
     "extraResources": [
-      "app/clipboarddb/copydata.db"
+      "app/app.html"
     ],
     "dmg": {
       "contents": [

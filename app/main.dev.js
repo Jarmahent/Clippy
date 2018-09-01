@@ -12,11 +12,19 @@
  */
 
 import { app, BrowserWindow, Tray, ipcMain } from 'electron';
+import path from 'path';
+import fs from 'fs';
 
 const clipboardWatcher = require('electron-clipboard-watcher'); // Watch clipboard for changes
 
+const dataPath = path.join(app.getPath('appData'), '/clippy');
+
 let mainWindow = null;
 let tray = null;
+
+if (!fs.existsSync(dataPath)) {
+  fs.mkdirSync(dataPath);
+}
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -27,6 +35,8 @@ if (
   process.env.NODE_ENV === 'development' ||
   process.env.DEBUG_PROD === 'true'
 ) {
+  /* eslint-disable */
+
   require('electron-debug')();
   const path = require('path');
   const p = path.join(__dirname, '..', 'app', 'node_modules');
@@ -98,7 +108,7 @@ const getWindowPosition = () => {
 };
 
 const createTray = () => {
-  tray = new Tray('./app/trayicon/tray22.png');
+  tray = new Tray('app/trayicon/tray22.png');
   /* eslint-disable */
 
   tray.on('click', function(event) {
@@ -125,13 +135,13 @@ app.on('ready', async () => {
   }
 
   mainWindow = new BrowserWindow({
-    resizable: false,
     show: false,
     width: 300,
     height: 465,
     frame: false,
     transparent: true
   });
+  mainWindow.toggleDevTools();
   mainWindow.setMenu(null);
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
@@ -141,7 +151,7 @@ app.on('ready', async () => {
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');
     }
-    // mainWindow.show(); //Focus window here
+    mainWindow.show(); //Focus window here
     // mainWindow.focus();
   });
 
@@ -153,8 +163,8 @@ app.on('ready', async () => {
     // mainWindow.hide();
   });
 
-  ipcMain.once('db-init', (event, args) => {
-    // mainWindow.webContents.send('db-init', db.getAllData(20));
+  ipcMain.once('get-userpath', (event, args) => {
+    event.returnValue = dataPath.toString();
   });
 
   createTray();

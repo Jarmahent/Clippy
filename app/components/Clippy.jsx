@@ -7,8 +7,7 @@ import DbHandler from '../clipboarddb/Handler';
 export default class Clippy extends Component {
   constructor() {
     super();
-    this.dbHandler = new DbHandler();
-    this.myRef = React.createRef();
+    this.dbHandler = new DbHandler(ipcRenderer.sendSync('get-userpath', 'i'));
   }
 
   state = {
