@@ -6,10 +6,6 @@ Clippy is a dynamic clipboarding app that tracks everything you have copied, inc
 
 `This app is in Alpha and is not working at all yet`
 
-
-
 ## Screenshot
 
 ![Clippy](https://i.imgur.com/o3NDiOm.png)
-
-
