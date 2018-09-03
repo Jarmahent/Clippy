@@ -116,7 +116,11 @@ const getWindowPosition = () => {
 };
 
 const createTray = () => {
-  tray = new Tray('app/trayicon/tray22.png');
+  const trayIcon = path.join(
+    process.resourcesPath,
+    '/app/trayicon/tray22.icns'
+  );
+  tray = new Tray(trayIcon);
   /* eslint-disable */
 
   tray.on('click', function(event) {

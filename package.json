@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
+  "name": "Clippy",
+  "productName": "Clippy",
   "version": "0.14.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "Clippy App",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.dev.dll.js --colors",
@@ -56,8 +56,10 @@
       "package.json"
     ],
     "extraResources": [
-      "app/app.html"
+      "app/trayicon/tray22.icns",
+      "app/trayicon/tray22.ico"
     ],
+    "extraFiles": ["app/trayicon/tray22.png"],
     "dmg": {
       "contents": [
         {
