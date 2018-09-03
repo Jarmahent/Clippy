@@ -1,13 +1,15 @@
 // @flow
 import React, { Component } from 'react';
-import { ipcRenderer } from 'electron';
+import { ipcRenderer, clipboard } from 'electron';
 import styles from './Clippy.css';
 import DbHandler from '../clipboarddb/Handler';
+import MiscUtil from '../utils/Util';
 
 export default class Clippy extends Component {
   constructor() {
     super();
     this.dbHandler = new DbHandler(ipcRenderer.sendSync('get-userpath', 'i'));
+    this.util = new MiscUtil();
   }
 
   state = {
@@ -15,6 +17,7 @@ export default class Clippy extends Component {
   };
 
   componentDidMount() {
+    // Initial data load from database this runs only once when the app starts
     const args = this.dbHandler.getAllData(25);
     const copyArray = [];
 
@@ -28,16 +31,27 @@ export default class Clippy extends Component {
     console.log('Updated!');
     ipcRenderer.once('db-ch', (event, args) => {
       const date = new Date();
-      this.setState(prevState => ({
-        clipArray: [args, ...prevState.clipArray]
-      }));
 
-      this.dbHandler.insertClipboardData(args, date.toString());
+      /* eslint-disable */
+      if (!this.state.clipArray.includes(args.toString())) {
+        // Dont add the data to the db if its already there
+        this.dbHandler.insertClipboardData(args, date.toString());
+      }
+
+      this.setState(prevState => {
+        const removeDupes = this.util.removeDuplicates([
+          args,
+          ...prevState.clipArray
+        ]);
+
+        return { clipArray: removeDupes };
+      });
     });
   }
 
-  copyToClipboard = e => {
-    console.log(e.target.innerHTML);
+  cutArray = e => {
+    const content = e.target.textContent.toString();
+    clipboard.writeText(content); // When a clipboard event happens it gets appended twice.
   };
 
   render() {
@@ -53,7 +67,8 @@ export default class Clippy extends Component {
                 <li
                   className={styles.copies}
                   key={index}
-                  onClick={this.copyToClipboard}
+                  onClick={this.cutArray}
+                  arrayindex={index}
                 >
                   {name}
                 </li>

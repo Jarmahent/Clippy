@@ -56,9 +56,21 @@ export default class DbHandler {
       throw err;
     }
   }
+
+  removeRow(rowContent) {
+    try {
+      const statement = this.dbConnection.prepare(
+        'DELETE FROM copyData WHERE data = ?'
+      );
+      return statement.run(rowContent);
+    } catch (err) {
+      throw err;
+    }
+  }
 }
 
 // const db = new DbHandler();
 // console.log(db.getAllData());
 // console.log(db.insertClipboardData('new', 'newdate'));
 // console.log(DbHandler.parseToSingleLine("nothing"));
+// console.log(db.removeRow("kebin"));
