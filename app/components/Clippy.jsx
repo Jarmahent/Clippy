@@ -32,8 +32,9 @@ export default class Clippy extends Component {
     ipcRenderer.once('db-ch', (event, args) => {
       const date = new Date();
 
-      /* eslint-disable */
-      if (!this.state.clipArray.includes(args.toString())) {
+      const { clipArray } = this.state;
+
+      if (!clipArray.includes(args.toString())) {
         // Dont add the data to the db if its already there
         this.dbHandler.insertClipboardData(args, date.toString());
       }
