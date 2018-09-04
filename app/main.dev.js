@@ -21,6 +21,7 @@ const dataPath = path.join(app.getPath('appData'), '/clippy');
 
 let mainWindow = null;
 let tray = null;
+let trayIcon = null;
 
 if (!fs.existsSync(dataPath)) {
   fs.mkdirSync(dataPath);
@@ -116,10 +117,19 @@ const getWindowPosition = () => {
 };
 
 const createTray = () => {
-  const trayIcon = path.join(
-    process.resourcesPath,
-    '/app/trayicon/tray22.icns'
-  );
+  if (process.platform !== 'darwin') {
+    console.log('Windows ran');
+    trayIcon = path.join(process.resourcesPath, '/app/trayicon/tray22.ico');
+  } else if (process.env.NODE_ENV === 'development') {
+    console.log('Dev ran');
+
+    trayIcon = 'app/trayicon/tray22.png';
+  } else {
+    console.log('Mac ran');
+
+    trayIcon = path.join(process.resourcesPath, '/app/trayicon/tray22.icns');
+  }
+
   tray = new Tray(trayIcon);
   /* eslint-disable */
 
@@ -130,6 +140,7 @@ const createTray = () => {
   tray.setToolTip('Clipboard');
 };
 
+app.dock.hide(); // Hide app inside the dock
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
   // after all windows have been closed

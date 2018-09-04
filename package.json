@@ -59,7 +59,6 @@
       "app/trayicon/tray22.icns",
       "app/trayicon/tray22.ico"
     ],
-    "extraFiles": ["app/trayicon/tray22.png"],
     "dmg": {
       "contents": [
         {
