@@ -67,15 +67,6 @@ export default class DbHandler {
       throw err;
     }
   }
-
-  closeConnection() {
-    try {
-      this.dbConnection.close();
-      return 1;
-    } catch (err) {
-      throw err;
-    }
-  }
 }
 
 // const db = new DbHandler();

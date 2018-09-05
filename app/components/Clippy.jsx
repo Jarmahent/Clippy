@@ -54,10 +54,6 @@ export default class Clippy extends Component {
     });
   }
 
-  componentWillUnmount() {
-    this.dbHandler.closeConnection();
-  }
-
   cutArray = e => {
     const content = e.target.textContent.toString();
     clipboard.writeText(content);
