@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { ipcRenderer, clipboard } from 'electron';
+import FontAwesome from 'react-fontawesome';
 import styles from './Clippy.css';
 import DbHandler from '../clipboarddb/Handler';
 import MiscUtil from '../utils/Util';
@@ -20,7 +21,12 @@ export default class Clippy extends Component {
     clipArray: []
   };
 
+  componentWillMount() {
+    console.log('Will Mount!');
+  }
+
   componentDidMount() {
+    console.log('Mounted');
     // Initial data load from database this runs only once when the app starts
     const args = this.dbHandler.getAllData(25);
     const copyArray = [];
@@ -65,7 +71,10 @@ export default class Clippy extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.header}>
-          <Link to={routes.SETTINGS}>Settings Link</Link>
+          Recent Copies
+          <Link className={styles.settingsLink} to={routes.SETTINGS}>
+            <FontAwesome name="cog" />
+          </Link>
         </div>
         <div className={styles.copyList}>
           <ul>
@@ -83,7 +92,7 @@ export default class Clippy extends Component {
           </ul>
         </div>
 
-        <div className={styles.footer}>FooterHere</div>
+        <div className={styles.footer} />
       </div>
     );
   }

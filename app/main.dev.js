@@ -88,6 +88,7 @@ const showWindow = () => {
   /* eslint-disable */
 
   const position = getWindowPosition();
+
   mainWindow.setPosition(position.x, position.y, false);
   mainWindow.show();
   mainWindow.focus();
@@ -158,6 +159,7 @@ app.on('ready', async () => {
   }
 
   mainWindow = new BrowserWindow({
+    resizable: false,
     show: false,
     width: 300,
     height: 465,
@@ -174,7 +176,7 @@ app.on('ready', async () => {
     if (!mainWindow) {
       throw new Error('"mainWindow" is not defined');
     }
-    mainWindow.show(); //Focus window here
+    // mainWindow.show(); //Focus window here
     // mainWindow.focus();
   });
 
