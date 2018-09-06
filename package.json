@@ -2,7 +2,7 @@
   "name": "Clippy",
   "productName": "Clippy",
   "version": "0.14.0",
-  "description": "Clippy App",
+  "description": "App to keep constant track of all your copies",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
     "build-dll": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.dev.dll.js --colors",
@@ -114,7 +114,7 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/jarmahent/clippy",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {

@@ -11,11 +11,13 @@
  * @flow
  */
 
-import { app, BrowserWindow, Tray, ipcMain } from 'electron';
+import { app, BrowserWindow, Tray, ipcMain, Menu, MenuItem } from 'electron';
 import path from 'path';
 import fs from 'fs';
 
-const clipboardWatcher = require('electron-clipboard-watcher'); // Watch clipboard for changes
+const clipboardWatcher = require('electron-clipboard-watcher');
+
+const menu = new Menu();
 
 const dataPath = path.join(app.getPath('appData'), '/clippy');
 
@@ -23,11 +25,16 @@ let mainWindow = null;
 let tray = null;
 let trayIcon = null;
 
+/* ----------------------------------------------
+            CHECKS BEFORE APP STARTS
+ ----------------------------------------------  */
+
 if (!fs.existsSync(dataPath)) {
   fs.mkdirSync(dataPath);
 }
 
 if (process.env.NODE_ENV === 'production') {
+  // app.dock.hide(); // Hide app inside the dock
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
 }
@@ -53,13 +60,13 @@ const installExtensions = async () => {
     extensions.map(name => installer.default(installer[name], forceDownload))
   ).catch(console.log);
 };
+/* ----------------------------------------------
+            END CHECKS BEFORE APP STARTS
+ ----------------------------------------------  */
 
-/*
-Handler for clipboard events and
-where the data is put into
-the sqlite3 database
-*/
-
+/* ----------------------------------------------
+                 CLIPBOARD WATCHER
+ ----------------------------------------------  */
 clipboardWatcher({
   watchDelay: 300, // milliseconds
   onImageChange: nativeImage => {
@@ -70,7 +77,13 @@ clipboardWatcher({
   }
 });
 
-// End Handler
+/* ----------------------------------------------
+                 END CLIBOARDWATCHER
+ ----------------------------------------------  */
+
+/* ----------------------------------------------
+                 WINDOW TOGGLER
+ ----------------------------------------------  */
 
 const toggleWindow = () => {
   if (mainWindow.isVisible()) {
@@ -104,7 +117,6 @@ const getWindowPosition = () => {
     const x = Math.round(
       trayBounds.x + trayBounds.width / 2 - windowBounds.width / 2
     );
-    console.log(x, y);
     return { x: x, y: y };
   } else {
     // Position window 4 pixels vertically below the tray icon Linux And Mac
@@ -116,11 +128,29 @@ const getWindowPosition = () => {
     return { x: x, y: y };
   }
 };
+/* ----------------------------------------------
+                 END WINDOW TOGGLER
+ ----------------------------------------------  */
 
+/* ----------------------------------------------
+                  TRAY INIT
+  ----------------------------------------------  */
 const createTray = () => {
-  if (process.platform !== 'darwin') {
+  menu.append(
+    new MenuItem({
+      label: 'Exit',
+      click() {
+        app.exit();
+      }
+    })
+  );
+
+  if (process.platform !== 'darwin' && process.env.NODE_ENV === 'development') {
+    console.log('Dev Windows ran');
+    trayIcon = 'app/trayicon/airplane.ico';
+  } else if (process.platform !== 'darwin') {
     console.log('Windows ran');
-    trayIcon = path.join(process.resourcesPath, '/app/trayicon/tray22.ico');
+    trayIcon = path.join(process.resourcesPath, 'app/trayicon/tray22.ico');
   } else if (process.env.NODE_ENV === 'development') {
     console.log('Dev ran');
 
@@ -137,11 +167,17 @@ const createTray = () => {
   tray.on('click', function(event) {
     toggleWindow();
   });
+  tray.on('right-click', function(event) {
+    menu.popup({});
+  });
 
   tray.setToolTip('Clipboard');
 };
 
-app.dock.hide(); // Hide app inside the dock
+/* ----------------------------------------------
+                 END TRAY INIT
+ ----------------------------------------------  */
+
 app.on('window-all-closed', () => {
   // Respect the OSX convention of having the application in memory even
   // after all windows have been closed
@@ -149,6 +185,10 @@ app.on('window-all-closed', () => {
     app.quit();
   }
 });
+
+/* ----------------------------------------------
+                APP STARTS HERE
+ ----------------------------------------------  */
 
 app.on('ready', async () => {
   if (
@@ -159,6 +199,7 @@ app.on('ready', async () => {
   }
 
   mainWindow = new BrowserWindow({
+    skipTaskbar: true,
     resizable: false,
     show: false,
     width: 300,
@@ -166,7 +207,6 @@ app.on('ready', async () => {
     frame: false,
     transparent: true
   });
-  mainWindow.toggleDevTools();
   mainWindow.setMenu(null);
   mainWindow.loadURL(`file://${__dirname}/app.html`);
 
@@ -193,7 +233,8 @@ app.on('ready', async () => {
   });
 
   createTray();
-
-  // const menuBuilder = new MenuBuilder(mainWindow);
-  // menuBuilder.buildMenu();
 });
+
+/* ----------------------------------------------
+                 END APP STARTS HERE
+ ----------------------------------------------  */
