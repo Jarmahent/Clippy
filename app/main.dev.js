@@ -147,7 +147,7 @@ const createTray = () => {
 
   if (process.platform !== 'darwin' && process.env.NODE_ENV === 'development') {
     console.log('Dev Windows ran');
-    trayIcon = 'app/trayicon/airplane@256.ico';
+    trayIcon = 'app/trayicon/airplane@32.ico';
   } else if (process.platform !== 'darwin') {
     console.log('Windows ran');
     trayIcon = path.join(
@@ -157,7 +157,7 @@ const createTray = () => {
   } else if (process.env.NODE_ENV === 'development') {
     console.log('Dev ran');
 
-    trayIcon = 'app/trayicon/airplane@32.png';
+    trayIcon = 'app/trayicon/airplane@32.icns';
   } else {
     console.log('Mac ran');
 
