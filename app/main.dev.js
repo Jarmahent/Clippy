@@ -150,15 +150,21 @@ const createTray = () => {
     trayIcon = 'app/trayicon/airplane.ico';
   } else if (process.platform !== 'darwin') {
     console.log('Windows ran');
-    trayIcon = path.join(process.resourcesPath, 'app/trayicon/tray22.ico');
+    trayIcon = path.join(
+      process.resourcesPath,
+      'app/trayicon/airplane@256.ico'
+    );
   } else if (process.env.NODE_ENV === 'development') {
     console.log('Dev ran');
 
-    trayIcon = 'app/trayicon/tray22.png';
+    trayIcon = 'app/trayicon/airplane@32.png';
   } else {
     console.log('Mac ran');
 
-    trayIcon = path.join(process.resourcesPath, '/app/trayicon/tray22.icns');
+    trayIcon = path.join(
+      process.resourcesPath,
+      '/app/trayicon/airplane@256.icns'
+    );
   }
 
   tray = new Tray(trayIcon);
