@@ -147,7 +147,7 @@ const createTray = () => {
 
   if (process.platform !== 'darwin' && process.env.NODE_ENV === 'development') {
     console.log('Dev Windows ran');
-    trayIcon = 'app/trayicon/airplane.ico';
+    trayIcon = 'app/trayicon/airplane@256.ico';
   } else if (process.platform !== 'darwin') {
     console.log('Windows ran');
     trayIcon = path.join(
