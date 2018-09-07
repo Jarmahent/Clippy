@@ -60,7 +60,8 @@
       "app/trayicon/airplane@256.icns",
       "app/trayicon/tray22.ico",
       "app/trayicon/airplane@256.ico",
-      "app/trayicon/airplane@32.ico"
+      "app/trayicon/airplane@32.ico",
+      "app/trayicon/airplane@2x.png"
     ],
     "dmg": {
       "contents": [

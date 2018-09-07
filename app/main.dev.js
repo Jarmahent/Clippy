@@ -157,13 +157,13 @@ const createTray = () => {
   } else if (process.env.NODE_ENV === 'development') {
     console.log('Dev ran');
 
-    trayIcon = 'app/trayicon/airplane@32.icns';
+    trayIcon = 'app/trayicon/airplane@2x.png';
   } else {
     console.log('Mac ran');
 
     trayIcon = path.join(
       process.resourcesPath,
-      '/app/trayicon/airplane@256.icns'
+      '/app/trayicon/airplane@2x.png'
     );
   }
 
