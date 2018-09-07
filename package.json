@@ -96,16 +96,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
+    "url": "git+https://github.com/Jarmahent/Clippy.git"
   },
   "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
+    "name": "Kevin Hernandez",
+    "email": "kevin@kevintweaks.net",
+    "url": "https://github.com/jarmahent"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
+    "url": "https://github.com/Jarmahent/Clippy/issues"
   },
   "keywords": [
     "electron",
