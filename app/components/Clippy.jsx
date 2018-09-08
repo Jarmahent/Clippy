@@ -7,10 +7,7 @@ import styles from './Clippy.css';
 import MiscUtil from '../utils/Util';
 import routes from '../constants/routes.json';
 
-
 export default class Clippy extends Component {
-
-
   constructor(props) {
     super(props);
     this.util = new MiscUtil();
@@ -28,14 +25,14 @@ export default class Clippy extends Component {
     const copyArray = [];
 
     args.map((name, index) => copyArray.push(args[index].data));
-    console.log("componentDidMount ran!")
+    console.log('componentDidMount ran!');
     this.setState(() => ({
       clipArray: copyArray
     }));
   }
 
   componentDidUpdate() {
-    console.log("componentDidUpdate ran!")
+    console.log('componentDidUpdate ran!');
     ipcRenderer.once('db-ch', (event, args) => {
       const date = new Date();
 
@@ -44,7 +41,7 @@ export default class Clippy extends Component {
       if (!clipArray.includes(args.toString())) {
         // Dont add the data to the db if its already there
         /* eslint-disable */
-        
+
         this.props.insertData(args, date.toString());
       }
 
@@ -59,8 +56,8 @@ export default class Clippy extends Component {
     });
   }
 
-  componentWillUnmount(){
-    console.log("componentWillUnmount ran!");
+  componentWillUnmount() {
+    ipcRenderer.removeAllListeners('db-ch', this.componentDidUpdate);
   }
 
   cutArray = e => {
@@ -69,7 +66,6 @@ export default class Clippy extends Component {
   };
 
   render() {
-
     /* eslint-disable */
     // Add a unique key creator for the key
     return (
