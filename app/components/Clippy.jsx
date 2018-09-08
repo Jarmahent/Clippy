@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom';
 import { ipcRenderer, clipboard } from 'electron';
 import FontAwesome from 'react-fontawesome';
 import styles from './Clippy.css';
-import DbHandler from '../clipboarddb/Handler';
 import MiscUtil from '../utils/Util';
 import routes from '../constants/routes.json';
 
-const userPath = ipcRenderer.sendSync('get-userpath', 'i');
 
 export default class Clippy extends Component {
-  constructor() {
-    super();
-    this.dbHandler = new DbHandler(userPath);
+
+
+  constructor(props) {
+    super(props);
     this.util = new MiscUtil();
   }
 
@@ -21,24 +20,22 @@ export default class Clippy extends Component {
     clipArray: []
   };
 
-  componentWillMount() {
-    console.log('Will Mount!');
-  }
-
   componentDidMount() {
-    console.log('Mounted');
     // Initial data load from database this runs only once when the app starts
-    const args = this.dbHandler.getAllData(25);
+    /* eslint-disable */
+
+    const args = this.props.getAllData(25);
     const copyArray = [];
 
     args.map((name, index) => copyArray.push(args[index].data));
+    console.log("componentDidMount ran!")
     this.setState(() => ({
       clipArray: copyArray
     }));
   }
 
   componentDidUpdate() {
-    console.log('Updated!');
+    console.log("componentDidUpdate ran!")
     ipcRenderer.once('db-ch', (event, args) => {
       const date = new Date();
 
@@ -46,7 +43,9 @@ export default class Clippy extends Component {
 
       if (!clipArray.includes(args.toString())) {
         // Dont add the data to the db if its already there
-        this.dbHandler.insertClipboardData(args, date.toString());
+        /* eslint-disable */
+        
+        this.props.insertData(args, date.toString());
       }
 
       this.setState(prevState => {
@@ -60,12 +59,17 @@ export default class Clippy extends Component {
     });
   }
 
+  componentWillUnmount(){
+    console.log("componentWillUnmount ran!");
+  }
+
   cutArray = e => {
     const content = e.target.textContent.toString();
     clipboard.writeText(content);
   };
 
   render() {
+
     /* eslint-disable */
     // Add a unique key creator for the key
     return (
