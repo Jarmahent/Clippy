@@ -57,14 +57,22 @@ export default class DbHandler {
     }
   }
 
-  removeRow(rowContent) {
+  resetTable() {
     try {
-      const statement = this.dbConnection.prepare(
-        'DELETE FROM copyData WHERE data = ?'
-      );
-      return statement.run(rowContent);
+      const statement = this.dbConnection.prepare('DELETE FROM copyData');
+      statement.run();
+
+      return 1;
     } catch (err) {
       throw err;
+    }
+  }
+
+  closeConnection() {
+    try {
+      this.dbConnection.close();
+    } catch (err) {
+      throw error;
     }
   }
 }

@@ -237,6 +237,9 @@ app.on('ready', async () => {
   ipcMain.once('get-userpath', (event, args) => {
     event.returnValue = dataPath.toString();
   });
+  ipcMain.once('get-userpath2', (event, args) => {
+    event.returnValue = dataPath.toString();
+  });
 
   createTray();
 });
