@@ -54,6 +54,9 @@
   height: 50px;
   color: #ff0000;
   transition: 0.3s;
+  border: none;
+  background: none;
+  width: 100%;
 }
 .item:hover {
   cursor: pointer;

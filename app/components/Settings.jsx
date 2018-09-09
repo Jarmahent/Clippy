@@ -15,8 +15,6 @@ export default class Settings extends Component<Props> {
   };
 
   render() {
-    /* eslint-disable */
-
     return (
       <div className={styles.container}>
         <div className={styles.title}>
@@ -29,23 +27,17 @@ export default class Settings extends Component<Props> {
           <div className={styles.tableSettings}>
             <div className={styles.tableSettingsContent}>
               Table Settings
-              <div className={styles.item} onClick={this.clearDB}>
+              <button
+                type="button"
+                className={styles.item}
+                onClick={this.clearDB}
+              >
                 RESET TABLE
                 <FontAwesome
                   className={styles.danger}
                   name="exclamation-triangle"
                 />
-              </div>
-              <div className={styles.item}>PLACEHOLDER</div>
-              <div className={styles.item}>PLACEHOLDER</div>
-            </div>
-          </div>
-          <div className={styles.tableSettings}>
-            <div className={styles.tableSettingsContent}>
-              Style Settings
-              <div className={styles.item} onClick={this.clearDB}>
-                PLACEHOLDER
-              </div>
+              </button>
               <div className={styles.item}>PLACEHOLDER</div>
               <div className={styles.item}>PLACEHOLDER</div>
             </div>
