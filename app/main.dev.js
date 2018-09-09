@@ -98,8 +98,6 @@ ipcMain.on('show-window', () => {
 });
 
 const showWindow = () => {
-  /* eslint-disable */
-
   const position = getWindowPosition();
 
   mainWindow.setPosition(position.x, position.y, false);
