@@ -43,7 +43,6 @@ export default class Clippy extends Component {
 
       if (!clipArray.includes(args.toString())) {
         // Dont add the data to the db if its already there
-        /* eslint-disable */
 
         insertData(args, date.toString());
       }
