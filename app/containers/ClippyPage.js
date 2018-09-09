@@ -1,18 +1,17 @@
 // @flow
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Clippy from '../components/Clippy';
 
 export default class ClippyPage extends Component {
   render() {
-    /* eslint-disable */
-
-    const { insertData, getAllData, closeConnection } = this.props;
-    return (
-      <Clippy
-        insertData={insertData}
-        getAllData={getAllData}
-        closeConnection={closeConnection}
-      />
-    );
+    const { insertData, getAllData } = this.props;
+    return <Clippy insertData={insertData} getAllData={getAllData} />;
   }
 }
+/* eslint-disable */
+
+ClippyPage.propTypes = {
+  insertData: PropTypes.func,
+  getAllData: PropTypes.func
+};
