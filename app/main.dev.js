@@ -168,7 +168,6 @@ const createTray = () => {
   }
 
   tray = new Tray(trayIcon);
-  /* eslint-disable */
 
   tray.on('click', function(event) {
     toggleWindow();
