@@ -34,7 +34,8 @@ export default class Clippy extends Component {
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate ran!');
+    const { insertData } = this.props;
+
     ipcRenderer.once('db-ch', (event, args) => {
       const date = new Date();
 
@@ -44,7 +45,7 @@ export default class Clippy extends Component {
         // Dont add the data to the db if its already there
         /* eslint-disable */
 
-        this.props.insertData(args, date.toString());
+        insertData(args, date.toString());
       }
 
       this.setState(prevState => {
@@ -101,6 +102,6 @@ export default class Clippy extends Component {
 }
 
 Clippy.propTypes = {
-  getAllData: PropTypes.array,
-  insertData: PropTypes.number
+  getAllData: PropTypes.func,
+  insertData: PropTypes.func
 };
