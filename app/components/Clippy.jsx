@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { ipcRenderer, clipboard } from 'electron';
 import FontAwesome from 'react-fontawesome';
+import PropTypes from 'prop-types';
 import styles from './Clippy.css';
 import MiscUtil from '../utils/Util';
 import routes from '../constants/routes.json';
@@ -19,9 +20,10 @@ export default class Clippy extends Component {
 
   componentDidMount() {
     // Initial data load from database this runs only once when the app starts
-    /* eslint-disable */
 
-    const args = this.props.getAllData(25);
+    const { getAllData } = this.props;
+
+    const args = getAllData(25);
     const copyArray = [];
 
     args.map((name, index) => copyArray.push(args[index].data));
@@ -97,3 +99,8 @@ export default class Clippy extends Component {
     );
   }
 }
+
+Clippy.propTypes = {
+  getAllData: PropTypes.array,
+  insertData: PropTypes.number
+};
