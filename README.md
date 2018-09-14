@@ -1,5 +1,6 @@
-# Clippy Using Electron React BoilerPlate v(a0.14.0)
 
+# Clippy Using Electron React BoilerPlate v(a0.14.0)
+[![CircleCI](https://circleci.com/gh/Jarmahent/Clippy.svg?style=svg)](https://circleci.com/gh/Jarmahent/Clippy)
 ### Android has it, why can't you?
 
 Clippy is a dynamic clipboarding app that tracks everything you have copied, incuding images and text.
