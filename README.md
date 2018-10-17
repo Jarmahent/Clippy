@@ -19,7 +19,6 @@ But if you wish to download it anyways:
 
 # Patch notes as of v(a.0.64.9)
 
----
 
 ### `v(a.0.64.9)` Changes:
 
