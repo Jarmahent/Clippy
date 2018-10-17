@@ -9,7 +9,7 @@ Clippy is a dynamic clipboarding app that tracks everything you have copied, inc
 `This app is in Alpha and has ALOT of bugs!`
 But if you wish to download it anyways:
 
-### MAC OSX [[Download Link]](https://www.dropbox.com/s/xgr3dbbs48wmy5j/Clippy-1.0.0.dmg?dl=0)
+### MAC OSX [[Download Link]](https://www.dropbox.com/s/dxw0o0t8mix8kml/Clippy-0.64.9-mac.zip?dl=0)
 
 #### Built on High Sierra Version `10.13.6`
 
