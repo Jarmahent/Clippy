@@ -231,6 +231,11 @@ app.on('ready', async () => {
     // mainWindow.hide();
   });
 
+  ipcMain.on('minimize', (event, args) => {
+    toggleWindow();
+    event.returnValue = 'Minimizing window...';
+  });
+
   ipcMain.once('get-userpath', (event, args) => {
     event.returnValue = dataPath.toString();
   });

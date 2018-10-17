@@ -78,3 +78,12 @@
   padding-right: 5px;
   float: right;
 }
+
+.minimize {
+  z-index: 99;
+  float: right;
+  padding-right: 4px;
+}
+.minimize:hover {
+  color: white;
+}

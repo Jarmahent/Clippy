@@ -13,13 +13,16 @@ But if you wish to download it anyways:
 
 #### Built on High Sierra Version `10.13.6`
 
-### Windows [[Download Link]](https://www.dropbox.com/s/315fd4zv20ewwc6/Clippy%20Setup%201.0.0.rar?dl=0) *_(Outdated) will update soon_*
+### Windows [[Download Link]](https://www.dropbox.com/s/315fd4zv20ewwc6/Clippy%20Setup%201.0.0.rar?dl=0) _*(Outdated) will update soon*_
 
-#### Built on Windows 10 build # `17134.228` 
+#### Built on Windows 10 build # `17134.228`
 
 # Patch notes as of v(a.0.64.9)
-
 
 ### `v(a.0.64.9)` Changes:
 
 `-- Updated package.json file to reflect more acurate version number`
+
+### `v(a.0.74.9)` Changes:
+
+`-- Added minimize button to window`

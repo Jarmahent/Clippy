@@ -67,6 +67,11 @@ export default class Clippy extends Component {
     clipboard.writeText(content);
   };
 
+  minmizeWindow = e => {
+    ipcRenderer.sendSync('minimize', () => {});
+    console.log(e);
+  };
+
   render() {
     /* eslint-disable */
     // Add a unique key creator for the key
@@ -77,6 +82,9 @@ export default class Clippy extends Component {
           <Link className={styles.settingsLink} to={routes.SETTINGS}>
             <FontAwesome name="cog" />
           </Link>
+          <div className={styles.minimize} onClick={this.minmizeWindow}>
+            <FontAwesome name="window-minimize" />
+          </div>
         </div>
         <div className={styles.copyList}>
           <ul>
