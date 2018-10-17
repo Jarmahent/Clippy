@@ -16,3 +16,11 @@ But if you wish to download it anyways:
 ### Windows [[Download Link]](https://www.dropbox.com/s/315fd4zv20ewwc6/Clippy%20Setup%201.0.0.rar?dl=0)
 
 #### Built on Windows 10 build # `17134.228`
+
+# Patch notes as of v(a.0.64.9)
+
+---
+
+### `v(a.0.64.9)` Changes:
+
+`-- Updated package.json file to reflect more acurate version number`
