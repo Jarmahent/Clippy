@@ -13,9 +13,9 @@ But if you wish to download it anyways:
 
 #### Built on High Sierra Version `10.13.6`
 
-### Windows [[Download Link]](https://www.dropbox.com/s/315fd4zv20ewwc6/Clippy%20Setup%201.0.0.rar?dl=0)
+### Windows [[Download Link]](https://www.dropbox.com/s/315fd4zv20ewwc6/Clippy%20Setup%201.0.0.rar?dl=0) *_(Outdated) will update soon_*
 
-#### Built on Windows 10 build # `17134.228` *_(Outdated) will update soon_*
+#### Built on Windows 10 build # `17134.228` 
 
 # Patch notes as of v(a.0.64.9)
 
