@@ -27,10 +27,10 @@ But if you wish to download it anyways:
 
 # Patch notes as of v(a.0.64.9)
 
-### `v(a.0.64.9)` Changes:
+### `v(a0.64.9)` Changes:
 
 `-- Updated package.json file to reflect more acurate version number`
 
-### `v(a.0.74.9)` Changes:
+### `v(a0.74.9)` Changes:
 
 `-- Added minimize button to window`
