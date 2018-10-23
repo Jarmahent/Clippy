@@ -34,13 +34,14 @@ But if you wish to download it anyways:
 ## **Todo:**
 
 ```
-- Figure out why node gyp wont build some packages
+-[x] Figure out why node gyp wont build some packages
 // It didnt build because xcode command line tools weren't enabled,
 // to enable them install xcode and do: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
-- Add minimize option to the copytable view
+-[x] Add minimize option to the copytable view
+  // Added in v(a0.74.9)
 
-- IMPORTANT: Add ability for image copies to show on the table
+-[] IMPORTANT: Add ability for image copies to show on the table
 
-- Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere
+-[] Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere
 ```
