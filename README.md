@@ -43,5 +43,6 @@ But if you wish to download it anyways:
 
 - [ ] IMPORTANT: Add ability for image copies to show on the table
 
-- [ ] Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere
+- [ ] Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere 
+      // This feature is being worked on [here](https://github.com/Jarmahent/ClippyBackEnd)
 
