@@ -39,6 +39,7 @@ But if you wish to download it anyways:
 // to enable them install xcode and do: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 - [x] Add minimize option to the copytable view
+
   // Added in v(a0.74.9)
 
 - [ ] IMPORTANT: Add ability for image copies to show on the table
