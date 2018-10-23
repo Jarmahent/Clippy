@@ -35,7 +35,9 @@ But if you wish to download it anyways:
 
 
 - [x] Figure out why node gyp wont build some packages
+
 // It didnt build because xcode command line tools weren't enabled,
+
 // to enable them install xcode and do: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 - [x] Add minimize option to the copytable view
