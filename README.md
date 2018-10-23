@@ -17,6 +17,7 @@ But if you wish to download it anyways:
 
 
 #### Built on Windows 10 build # `17134.228`
+***
 
 # Patch notes as of v(a.0.64.9)
 
@@ -27,3 +28,19 @@ But if you wish to download it anyways:
 ### `v(a0.74.9)` Changes:
 
 `-- Added minimize button to window`
+
+***
+
+## **Todo:**
+
+```
+- Figure out why node gyp wont build some packages
+// It didnt build because xcode command line tools weren't enabled,
+// to enable them install xcode and do: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+- Add minimize option to the copytable view
+
+- IMPORTANT: Add ability for image copies to show on the table
+
+- Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere
+```
