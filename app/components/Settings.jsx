@@ -14,7 +14,6 @@ export default class Settings extends Component<Props> {
     resetTable();
   };
 
-
   render() {
     return (
       <div className={styles.container}>
@@ -39,7 +38,9 @@ export default class Settings extends Component<Props> {
                   name="exclamation-triangle"
                 />
               </button>
-              <Link className={styles.item}to={routes.LOGIN}>Login</Link>
+              <Link className={styles.item} to={routes.LOGIN}>
+                Login
+              </Link>
               <div className={styles.item}>PLACEHOLDER</div>
             </div>
           </div>
