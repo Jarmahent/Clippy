@@ -7,6 +7,7 @@ import App from './containers/App';
 import ClippyPage from './containers/ClippyPage';
 import SettingsPage from './containers/SettingsPage';
 import DbHandler from './clipboarddb/Handler';
+import LoginPage from './containers/LoginPage';
 
 /*
 
@@ -66,8 +67,16 @@ export default class Routes extends Component {
               <SettingsPage resetTable={this.resetTable.bind(this)} />
             )}
           />
+          <Route
+            exact
+            path={routes.LOGIN}
+            render={() => (
+              <LoginPage />
+            )}
+          />
         </Switch>
       </App>
+
     );
   }
 }

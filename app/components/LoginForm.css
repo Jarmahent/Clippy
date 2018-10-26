@@ -1,0 +1,19 @@
+.mainContainer {
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  height: 100vh;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.subContainer {
+}
+
+.formdiv {
+}
+
+.formdiv input {
+  background-color: rgba(128, 128, 128, 0.31);
+  border: none;
+}
