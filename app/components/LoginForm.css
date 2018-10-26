@@ -27,6 +27,7 @@
 }
 .formdiv input[type='submit'] {
   font-size: 13px;
+  font-weight: bold;
 }
 
 .formdiv label {

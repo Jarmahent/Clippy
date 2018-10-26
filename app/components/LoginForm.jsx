@@ -2,11 +2,9 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import styles from './LoginForm.css';
 
-class LoginForm extends React.Component {
-  static Login(event) {
-    event.preventDefault();
-  }
+/* eslint-disable */
 
+class LoginForm extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
@@ -17,6 +15,28 @@ class LoginForm extends React.Component {
     username: '',
     password: ''
   };
+
+  Login(event) {
+    event.preventDefault();
+
+    fetch('http://127.0.0.1:8000/copydata/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: this.username,
+        password: this.password
+      })
+    })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   handleChange(event) {
     event.preventDefault();
@@ -32,29 +52,10 @@ class LoginForm extends React.Component {
       <div className={styles.subContainer}>
         <div className={styles.formdiv}>
           <form onSubmit={this.Login}>
-            <label>Username</label>
+            <label>Authentication Token</label>
+            <input type="text" name="token" />
             <br />
-            <input
-              value={this.state.username}
-              type="text"
-              name="username"
-              onChange={this.handleChange}
-            />
-            <br />
-            <label>Password</label>
-            <br />
-            <input
-              value={this.state.password}
-              type="password"
-              name="password"
-              onChange={this.handleChange}
-            />
-            <br />
-            <input
-              type="submit"
-              className={styles.submitButton}
-              value="submit"
-            />
+            <input type="submit" className={styles.submitButton} value="Save" />
           </form>
         </div>
       </div>
