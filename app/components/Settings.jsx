@@ -38,7 +38,7 @@ export default class Settings extends Component<Props> {
                   name="exclamation-triangle"
                 />
               </button>
-              <Link className={styles.item} to={routes.LOGIN}>
+              <Link className={styles.item} to={routes.TOKEN}>
                 Login
               </Link>
               <div className={styles.item}>PLACEHOLDER</div>

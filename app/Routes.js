@@ -7,7 +7,7 @@ import App from './containers/App';
 import ClippyPage from './containers/ClippyPage';
 import SettingsPage from './containers/SettingsPage';
 import DbHandler from './clipboarddb/Handler';
-import LoginPage from './containers/LoginPage';
+import TokenPage from './containers/TokenPage';
 
 /*
 
@@ -45,6 +45,10 @@ export default class Routes extends Component {
     return this.DbHandler.closeConnection();
   }
 
+  insertToken(token) {
+    return this.DbHandler.insertToken(token);
+  }
+
   render() {
     return (
       <App>
@@ -69,14 +73,13 @@ export default class Routes extends Component {
           />
           <Route
             exact
-            path={routes.LOGIN}
+            path={routes.TOKEN}
             render={() => (
-              <LoginPage />
+              <TokenPage insertToken={this.insertToken.bind(this)} />
             )}
           />
         </Switch>
       </App>
-
     );
   }
 }

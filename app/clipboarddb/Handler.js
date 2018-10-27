@@ -6,28 +6,39 @@ export default class DbHandler {
     try {
       this.dbConnection
         .prepare(
-          'CREATE TABLE copyData ( id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, data TEXT, date TEXT )'
+          'CREATE TABLE IF NOT EXISTS copyData ( id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, data TEXT, date TEXT )'
         )
+        .run();
+    } catch (err) {
+      console.log(err);
+    }
+
+    try {
+      this.dbConnection
+        .prepare('CREATE TABLE IF NOT EXISTS tokenData (token TEXT)')
         .run();
     } catch (err) {
       console.log(err);
     }
   }
 
-  static parseToSingleLine(text) {
-    /* eslint-disable */
-    const singleLineParse = text.replace(/(?:\r\n|\r|\n)/g, '~$~');
-    return singleLineParse;
-  }
+  insertToken(token) {
+    try {
+      const statement = this.dbConnection.prepare(
+        ' INSERT INTO tokenData (token) VALUES (?)'
+      );
+      const deleteStatement = this.dbConnection.prepare(
+        'DELETE FROM tokenData'
+      );
 
-  static parseToMultiline(text) {
-    /* eslint-disable */
-    if (text.includes('~$~') === true) {
-      const multiLineParse = text.replace(/(\~\$\~)/g);
-      return multiLineParse;
-    } else {
-      return 'No parsing neccesary';
+      deleteStatement.run();
+      statement.run(token);
+
+      return 1;
+    } catch (err) {
+      console.log(err);
     }
+    return 0;
   }
 
   insertClipboardData(...args) {
@@ -72,7 +83,7 @@ export default class DbHandler {
     try {
       this.dbConnection.close();
     } catch (err) {
-      throw error;
+      throw err;
     }
   }
 }
