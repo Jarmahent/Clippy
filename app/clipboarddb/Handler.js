@@ -41,6 +41,17 @@ export default class DbHandler {
     return 0;
   }
 
+  getAuthToken() {
+    try {
+      const statement = this.dbConnection
+        .prepare('SELECT * FROM tokenData')
+        .all();
+      return statement;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   insertClipboardData(...args) {
     // Unpack args
     try {

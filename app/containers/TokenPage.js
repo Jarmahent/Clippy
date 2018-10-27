@@ -5,13 +5,14 @@ import TokenForm from '../components/TokenForm';
 
 export default class TokenPage extends Component {
   render() {
-    const { insertToken } = this.props;
-    return <TokenForm insertToken={insertToken} />;
+    const { insertToken, getToken } = this.props;
+    return <TokenForm insertToken={insertToken} getToken={getToken} />;
   }
 }
 
 /* eslint-disable */
 
 TokenPage.propTypes = {
-  insertToken: PropTypes.func
+  insertToken: PropTypes.func,
+  getToken: PropTypes.func
 };

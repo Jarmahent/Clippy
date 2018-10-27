@@ -49,6 +49,10 @@ export default class Routes extends Component {
     return this.DbHandler.insertToken(token);
   }
 
+  getToken() {
+    return this.DbHandler.getAuthToken();
+  }
+
   render() {
     return (
       <App>
@@ -75,7 +79,10 @@ export default class Routes extends Component {
             exact
             path={routes.TOKEN}
             render={() => (
-              <TokenPage insertToken={this.insertToken.bind(this)} />
+              <TokenPage
+                insertToken={this.insertToken.bind(this)}
+                getToken={this.getToken.bind(this)}
+              />
             )}
           />
         </Switch>

@@ -17,6 +17,15 @@ export default class TokenForm extends Component {
     token_saved: false
   };
 
+  componentWillMount() {
+    const { getToken } = this.props;
+    const data = getToken();
+
+    this.setState({
+      token: data[0].token
+    });
+  }
+
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
@@ -24,8 +33,8 @@ export default class TokenForm extends Component {
   }
 
   Login(event) {
-    const { insertToken } = this.props;
     event.preventDefault();
+    const { insertToken, getToken } = this.props;
     insertToken(this.state.token);
   }
 
@@ -40,7 +49,12 @@ export default class TokenForm extends Component {
           <div className={styles.formdiv}>
             <form onSubmit={this.Login}>
               <label>Authentication Token</label>
-              <input type="text" name="token" onChange={this.handleChange} />
+              <input
+                type="text"
+                name="token"
+                value={this.state.token}
+                onChange={this.handleChange}
+              />
               <br />
               <input
                 type="submit"

@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 import routes from '../constants/routes.json';
 import styles from './Settings.css';
 
-// const userPath = ipcRenderer.sendSync('get-userpath2', 'i');
-
 export default class Settings extends Component<Props> {
   clearDB = () => {
     const { resetTable } = this.props;
