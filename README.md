@@ -51,7 +51,7 @@ But if you wish to download it anyways:
 
       // Work around, delete all node modules and run yarn again.
 
-- [x] Fix all eslint errors, currently they are being ignored with  /* eslint-disable */
+- [ ] Fix all eslint errors, currently they are being ignored with  /* eslint-disable */
 
 - [ ] Redo all of the styling to make the UI look better
 
