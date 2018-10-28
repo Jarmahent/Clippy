@@ -33,20 +33,25 @@ But if you wish to download it anyways:
 
 ## **Todo:**
 
-
 - [x] Figure out why node gyp wont build some packages
 
 // It didnt build because xcode command line tools weren't enabled,
-
 // to enable them install xcode and do: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 - [x] Add minimize option to the copytable view
-
   // Added in v(a0.74.9)
 
 - [ ] IMPORTANT: Add ability for image copies to show on the table
 
-- [ ] Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere 
-
+- [ ] Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere
    // This feature is being worked on [here](https://github.com/Jarmahent/ClippyBackEnd)
+
+- [x] Why node gyp wont build some packages on windows with electron-rebuilder
+      // Work around, delete all node modules and run yarn again.
+
+- [x] Fix all eslint errors, currently they are being ignored with  /* eslint-disable */
+
+- [ ] Redo all of the styling to make the UI look better
+
+- [ ] Bug: If there are 2 screens and the icon is clicked it will split among the two screens
 
