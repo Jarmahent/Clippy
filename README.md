@@ -44,9 +44,11 @@ But if you wish to download it anyways:
 - [ ] IMPORTANT: Add ability for image copies to show on the table
 
 - [ ] Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere
+
    // This feature is being worked on [here](https://github.com/Jarmahent/ClippyBackEnd)
 
 - [x] Why node gyp wont build some packages on windows with electron-rebuilder
+
       // Work around, delete all node modules and run yarn again.
 
 - [x] Fix all eslint errors, currently they are being ignored with  /* eslint-disable */
