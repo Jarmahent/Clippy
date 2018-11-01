@@ -7,11 +7,15 @@ import PropTypes from 'prop-types';
 import styles from './Clippy.css';
 import MiscUtil from '../utils/Util';
 import routes from '../constants/routes.json';
+import NetController from '../NetworkController/NetController';
 
 export default class Clippy extends Component {
   constructor(props) {
     super(props);
     this.util = new MiscUtil();
+    this.NetworkController = new NetController(
+      '294dde275500d23b490cfbfc5ee5040aedff808e'
+    );
   }
 
   state = {
@@ -37,14 +41,18 @@ export default class Clippy extends Component {
     const { insertData } = this.props;
 
     ipcRenderer.once('db-ch', (event, args) => {
-      const date = new Date();
+      // const date = new Date();
 
       const { clipArray } = this.state;
 
       if (!clipArray.includes(args.toString())) {
         // Dont add the data to the db if its already there
-
-        insertData(args, date.toString());
+        try {
+          insertData(args, 'datehere');
+          this.NetworkController.sendData(args.toString(), 'date');
+        } catch (error) {
+          console.log(`Error ${error}`);
+        }
       }
 
       this.setState(prevState => {

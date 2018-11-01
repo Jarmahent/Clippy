@@ -215,6 +215,7 @@
     "yarn": "^1.9.2"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "better-sqlite3": "^4.1.4",
     "devtron": "^1.4.0",
     "electron-clipboard-watcher": "^1.0.1",
