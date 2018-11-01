@@ -1699,8 +1699,8 @@ before-after-hook@^1.1.0:
   resolved "https://registry.yarnpkg.com/before-after-hook/-/before-after-hook-1.1.0.tgz#83165e15a59460d13702cb8febd6a1807896db5a"
 
 better-sqlite3@^4.1.4:
-  version "4.1.4"
-  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-4.1.4.tgz#9fe1dcf7b699087b98b1997cbb00261e265897e2"
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/better-sqlite3/-/better-sqlite3-4.2.0.tgz#68b0c52e5d95022d86dbe837b96e1a7938e1652c"
   dependencies:
     bindings "^1.3.0"
     integer "^1.0.5"
@@ -5338,8 +5338,8 @@ inquirer@~3.3.0:
     through "^2.3.6"
 
 integer@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/integer/-/integer-1.0.5.tgz#cadbf6078290389e8e4e29226e6b0044433deec1"
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/integer/-/integer-1.0.7.tgz#28b4aa59412bcd7159c337020ba9aed939ab4467"
   dependencies:
     bindings "^1.3.0"
 
