@@ -37,7 +37,7 @@ export default class Settings extends Component<Props> {
                 />
               </button>
               <Link className={styles.item} to={routes.TOKEN}>
-                Login
+                Authentication
               </Link>
               <div className={styles.item}>PLACEHOLDER</div>
             </div>

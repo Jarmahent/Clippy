@@ -10,9 +10,12 @@ export default class TokenPage extends Component {
   }
 }
 
-/* eslint-disable */
-
 TokenPage.propTypes = {
   insertToken: PropTypes.func,
   getToken: PropTypes.func
+};
+
+TokenPage.defaultProps = {
+  insertToken: 'NULL',
+  getToken: 'NULL'
 };
