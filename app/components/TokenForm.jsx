@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import styles from './TokenForm.css';
 import routes from '../constants/routes.json';
-/* eslint-disable */
 
 export default class TokenForm extends Component {
   constructor(props) {
@@ -13,8 +13,7 @@ export default class TokenForm extends Component {
   }
 
   state = {
-    token: '',
-    token_saved: false
+    token: ''
   };
 
   componentWillMount() {
@@ -34,8 +33,9 @@ export default class TokenForm extends Component {
 
   Login(event) {
     event.preventDefault();
-    const { insertToken, getToken } = this.props;
-    insertToken(this.state.token);
+    const { token } = this.state;
+    const { insertToken } = this.props;
+    insertToken(token);
   }
 
   render() {
@@ -68,3 +68,8 @@ export default class TokenForm extends Component {
     );
   }
 }
+
+TokenForm.propTypes = {
+  getToken: PropTypes.func,
+  insertToken: PropTypes.func
+};
