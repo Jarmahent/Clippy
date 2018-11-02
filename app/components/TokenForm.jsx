@@ -39,7 +39,8 @@ export default class TokenForm extends Component {
   }
 
   render() {
-    /* eslint-disable */
+    const { token } = this.state;
+
     return (
       <div>
         <Link to={routes.SETTINGS} className={styles.arrowContainer}>
@@ -52,7 +53,7 @@ export default class TokenForm extends Component {
               <input
                 type="text"
                 name="token"
-                value={this.state.token}
+                value={token}
                 onChange={this.handleChange}
               />
               <br />
@@ -72,4 +73,9 @@ export default class TokenForm extends Component {
 TokenForm.propTypes = {
   getToken: PropTypes.func,
   insertToken: PropTypes.func
+};
+
+TokenForm.defaultProps = {
+  getToken: '[getToken] func is NULL',
+  insertToken: '[insertToken] func is NULL'
 };
