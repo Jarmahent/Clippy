@@ -9,9 +9,13 @@ export default class ClippyPage extends Component {
     return <Clippy insertData={insertData} getAllData={getAllData} />;
   }
 }
-/* eslint-disable */
 
 ClippyPage.propTypes = {
   insertData: PropTypes.func,
   getAllData: PropTypes.func
+};
+
+ClippyPage.defaultProps = {
+  insertData: '[insertData] func is NULL',
+  getAllData: '[getAllData] func is NULL'
 };
