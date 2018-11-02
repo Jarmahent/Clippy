@@ -16,6 +16,6 @@ TokenPage.propTypes = {
 };
 
 TokenPage.defaultProps = {
-  insertToken: 'NULL',
-  getToken: 'NULL'
+  insertToken: '[insertToken] func = NULL',
+  getToken: '[getToken] func = NULL'
 };
