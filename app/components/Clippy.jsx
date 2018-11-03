@@ -86,8 +86,11 @@ export default class Clippy extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.header}>
-          Recent Copies
-          <Link className={styles.settingsLink} to={routes.SETTINGS}>
+          <span className={styles.text}>Text</span>
+          <Link to={routes.IMAGES} className={styles.ImageLink}>
+            Images
+          </Link>
+          <Link className={styles.settingsLink} to={routes.IMAGES}>
             <FontAwesome name="cog" />
           </Link>
           <div className={styles.minimize} onClick={this.minmizeWindow}>

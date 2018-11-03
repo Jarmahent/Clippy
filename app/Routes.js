@@ -8,6 +8,7 @@ import ClippyPage from './containers/ClippyPage';
 import SettingsPage from './containers/SettingsPage';
 import DbHandler from './clipboarddb/Handler';
 import TokenPage from './containers/TokenPage';
+import ImagePage from './containers/ImagePage';
 
 /*
 
@@ -85,6 +86,7 @@ export default class Routes extends Component {
               />
             )}
           />
+          <Route exact path={routes.IMAGES} render={() => <ImagePage />} />
         </Switch>
       </App>
     );

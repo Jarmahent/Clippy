@@ -1,0 +1,49 @@
+.container {
+  overflow: scroll;
+  height: 100%;
+  width: 100%;
+}
+
+.TextLink {
+  margin-left: 5px;
+}
+
+.Image {
+  color: white;
+  margin-left: 5px;
+}
+
+.header {
+  color: #d0d0d0;
+  position: fixed;
+  width: 100%;
+  background-color: #696060;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+}
+
+.footer {
+  height: 5%;
+  text-align: center;
+  color: #d0d0d0;
+  background-color: #696060;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.settingsLink {
+  padding-right: 5px;
+  float: right;
+}
+
+.minimize {
+  z-index: 99;
+  float: right;
+  padding-right: 4px;
+}
+.minimize:hover {
+  color: white;
+}

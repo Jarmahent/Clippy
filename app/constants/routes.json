@@ -1,5 +1,6 @@
 {
   "CLIPPY": "/",
   "SETTINGS": "/settings",
-  "TOKEN": "/token"
+  "TOKEN": "/token",
+  "IMAGES": "/image"
 }

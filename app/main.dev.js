@@ -14,10 +14,13 @@
 import { app, BrowserWindow, Tray, ipcMain, Menu, MenuItem } from 'electron';
 import path from 'path';
 import fs from 'fs';
+import MiscUtil from './utils/Util';
 
 const clipboardWatcher = require('electron-clipboard-watcher');
 
 const menu = new Menu();
+
+const utility = new MiscUtil();
 
 const dataPath = path.join(app.getPath('appData'), '/clippy');
 
@@ -31,6 +34,7 @@ let trayIcon = null;
 
 if (!fs.existsSync(dataPath)) {
   fs.mkdirSync(dataPath);
+  fs.mkdirSync(`${dataPath}/NativeImages`);
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -69,8 +73,12 @@ const installExtensions = async () => {
  ----------------------------------------------  */
 clipboardWatcher({
   watchDelay: 300, // milliseconds
-  onImageChange: nativeImage => {
-    console.log(nativeImage); // Work on this
+  onImageChange: copiedImage => {
+    let name = utility.generateName();
+    fs.writeFile(
+      dataPath.toString() + `/NativeImages/${name}.png`,
+      copiedImage.toPNG()
+    );
   },
   onTextChange: text => {
     mainWindow.webContents.send('db-ch', text.toString());

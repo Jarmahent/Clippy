@@ -9,12 +9,24 @@
   width: 100%;
 }
 
+.text {
+  margin-left: 5px;
+  color: white;
+}
+
+/* .ImageLink a{
+  margin-left: 5px;
+} */
+
+.ImageLink {
+  margin-left: 5px;
+}
+
 .header {
   color: #d0d0d0;
   position: fixed;
   width: 100%;
   background-color: #696060;
-  text-align: center;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   font-size: 20px;
