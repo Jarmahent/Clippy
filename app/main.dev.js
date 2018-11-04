@@ -79,6 +79,7 @@ clipboardWatcher({
       dataPath.toString() + `/NativeImages/${name}.png`,
       copiedImage.toPNG()
     );
+    mainWindow.webContents.send('img-copy', 'newimage');
   },
   onTextChange: text => {
     mainWindow.webContents.send('db-ch', text.toString());

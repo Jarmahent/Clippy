@@ -3,6 +3,22 @@
   height: 100%;
   width: 100%;
 }
+.gridContainer {
+  margin-top: 23px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.imageContainer {
+  margin: 3px;
+}
+
+.copyPicture {
+  object-fit: contain;
+  width: 100px;
+  height: 100px;
+}
 
 .TextLink {
   margin-left: 5px;

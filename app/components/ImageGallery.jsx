@@ -1,10 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
+import { ipcRenderer } from 'electron';
+import fs from 'fs';
+import PropTypes from 'prop-types';
 import styles from './ImageGallery.css';
 import routes from '../constants/routes.json';
 
 class ImageGallery extends React.Component {
+  constructor(props) {
+    super(props);
+    const { userPath } = this.props;
+    this.userPath = userPath();
+  }
+
+  state = {
+    files: []
+  };
+  /* eslint-disable */
+
+  componentDidMount() {
+    const files = fs.readdirSync(`${this.userPath}/NativeImages/`);
+    this.setState(() => ({
+      files: files
+    }));
+  }
+  /* eslint-disable */
+
+  componentDidUpdate() {
+    ipcRenderer.once('img-copy', () => {
+      console.log('Updated!');
+      const files = fs.readdirSync(`${this.userPath}/NativeImages/`);
+      this.setState(() => ({
+        files: files
+      }));
+    });
+  }
+
   minimizeWindow = () => {
     console.log('Placeholder');
   };
@@ -26,7 +58,16 @@ class ImageGallery extends React.Component {
             <FontAwesome name="window-minimize" />
           </div>
         </div>
-
+        <div className={styles.gridContainer}>
+          {this.state.files.map((name, index) => (
+            <div key={index} className={styles.imageContainer}>
+              <img
+                className={styles.copyPicture}
+                src={`${this.userPath}/NativeImages/${name}`}
+              />
+            </div>
+          ))}
+        </div>
         <div className={styles.footer} />
       </div>
     );
@@ -34,3 +75,7 @@ class ImageGallery extends React.Component {
 }
 
 export default ImageGallery;
+
+ImageGallery.propTypes = {
+  userPath: PropTypes.func
+};

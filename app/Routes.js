@@ -54,6 +54,12 @@ export default class Routes extends Component {
     return this.DbHandler.getAuthToken();
   }
 
+  /* eslint-disable */
+
+  getUserPath() {
+    return userPath.toString();
+  }
+
   render() {
     return (
       <App>
@@ -86,7 +92,11 @@ export default class Routes extends Component {
               />
             )}
           />
-          <Route exact path={routes.IMAGES} render={() => <ImagePage />} />
+          <Route
+            exact
+            path={routes.IMAGES}
+            render={() => <ImagePage userPath={this.getUserPath.bind(this)} />}
+          />
         </Switch>
       </App>
     );
