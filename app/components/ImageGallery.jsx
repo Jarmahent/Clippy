@@ -12,6 +12,7 @@ class ImageGallery extends React.Component {
     super(props);
     const { userPath } = this.props;
     this.userPath = userPath();
+    this.imagePath = `${this.userPath}/NativeImages/`;
   }
 
   state = {
@@ -20,7 +21,7 @@ class ImageGallery extends React.Component {
   /* eslint-disable */
 
   componentDidMount() {
-    const files = fs.readdirSync(`${this.userPath}/NativeImages/`);
+    const files = fs.readdirSync(this.imagePath);
     this.setState(() => ({
       files: files
     }));
@@ -30,7 +31,7 @@ class ImageGallery extends React.Component {
   componentDidUpdate() {
     ipcRenderer.once('img-copy', () => {
       console.log('Updated!');
-      const files = fs.readdirSync(`${this.userPath}/NativeImages/`);
+      const files = fs.readdirSync(this.imagePath);
       this.setState(() => ({
         files: files
       }));

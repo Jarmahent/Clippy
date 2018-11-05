@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { ipcRenderer } from 'electron';
 import { Switch, Route } from 'react-router';
+import path from 'path';
+import fs from 'fs';
 import routes from './constants/routes.json';
 import App from './containers/App';
 import ClippyPage from './containers/ClippyPage';
@@ -59,6 +61,18 @@ export default class Routes extends Component {
   getUserPath() {
     return userPath.toString();
   }
+  clearImageDirectory() {
+    const imagePath = `${userPath}/NativeImages/`;
+    fs.readdir(imagePath, (err, files) => {
+      if (err) throw err;
+
+      for (const file of files) {
+        fs.unlink(path.join(imagePath, file), err => {
+          if (err) throw err;
+        });
+      }
+    });
+  }
 
   render() {
     return (
@@ -79,7 +93,10 @@ export default class Routes extends Component {
             exact
             path={routes.SETTINGS}
             render={() => (
-              <SettingsPage resetTable={this.resetTable.bind(this)} />
+              <SettingsPage
+                resetTable={this.resetTable.bind(this)}
+                clearImageDirectory={this.clearImageDirectory.bind(this)}
+              />
             )}
           />
           <Route

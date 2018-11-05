@@ -12,6 +12,11 @@ export default class Settings extends Component<Props> {
     resetTable();
   };
 
+  clearImgDir = () => {
+    const { clearImageDirectory } = this.props;
+    clearImageDirectory();
+  };
+
   render() {
     return (
       <div className={styles.container}>
@@ -30,7 +35,7 @@ export default class Settings extends Component<Props> {
                 className={styles.item}
                 onClick={this.clearDB}
               >
-                RESET TABLE
+                ERASE HISTORY
                 <FontAwesome
                   className={styles.danger}
                   name="exclamation-triangle"
@@ -39,7 +44,19 @@ export default class Settings extends Component<Props> {
               <Link className={styles.item} to={routes.TOKEN}>
                 Authentication
               </Link>
-              <div className={styles.item}>PLACEHOLDER</div>
+              <div className={styles.item}>
+                <button
+                  type="button"
+                  className={styles.item}
+                  onClick={this.clearImgDir}
+                >
+                  ERASE IMAGE HISTORY
+                  <FontAwesome
+                    className={styles.danger}
+                    name="exclamation-triangle"
+                  />
+                </button>
+              </div>
             </div>
           </div>
         </div>

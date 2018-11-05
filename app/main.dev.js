@@ -75,10 +75,10 @@ clipboardWatcher({
   watchDelay: 300, // milliseconds
   onImageChange: copiedImage => {
     let name = utility.generateName();
-    fs.writeFile(
-      dataPath.toString() + `/NativeImages/${name}.png`,
-      copiedImage.toPNG()
-    );
+    let imagesPath = dataPath.toString() + `/NativeImages/${name}.png`;
+    fs.writeFile(imagesPath, copiedImage.toPNG(), err => {
+      if (err) throw err;
+    });
     mainWindow.webContents.send('img-copy', 'newimage');
   },
   onTextChange: text => {

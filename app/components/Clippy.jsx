@@ -90,7 +90,7 @@ export default class Clippy extends Component {
           <Link to={routes.IMAGES} className={styles.ImageLink}>
             Images
           </Link>
-          <Link className={styles.settingsLink} to={routes.IMAGES}>
+          <Link className={styles.settingsLink} to={routes.SETTINGS}>
             <FontAwesome name="cog" />
           </Link>
           <div className={styles.minimize} onClick={this.minmizeWindow}>
