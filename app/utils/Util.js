@@ -8,7 +8,7 @@ export default class MiscUtil {
 
   generateName() {
     let name = '';
-    let list = 'abcdefghijklmnopqrxtuvqxyz1234567890#%$';
+    let list = 'abcdefghijklmnopqrxtuvqxyz1234567890';
     for (let i = 0; i < 7; i++) {
       name += list.charAt(Math.floor(Math.random() * list.length));
     }

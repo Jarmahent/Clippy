@@ -20,9 +20,15 @@ export default class TokenForm extends Component {
     const { getToken } = this.props;
     const data = getToken();
 
-    this.setState({
-      token: data[0].token
-    });
+    try {
+      this.setState({
+        token: data[0].token
+      });
+    } catch (err) {
+      this.setState({
+        token: 'Place Your Token Here!'
+      });
+    }
   }
 
   handleChange(event) {
