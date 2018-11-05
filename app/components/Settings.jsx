@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // import { ipcRenderer} from 'electron';
 import FontAwesome from 'react-fontawesome';
 import { Link } from 'react-router-dom';
+import { ipcRenderer } from 'electron';
 import routes from '../constants/routes.json';
 import styles from './Settings.css';
 
@@ -15,6 +16,10 @@ export default class Settings extends Component<Props> {
   clearImgDir = () => {
     const { clearImageDirectory } = this.props;
     clearImageDirectory();
+  };
+
+  openImageDirectory = () => {
+    ipcRenderer.send('open-dir', 'data');
   };
 
   render() {
@@ -41,9 +46,13 @@ export default class Settings extends Component<Props> {
                   name="exclamation-triangle"
                 />
               </button>
-              <Link className={styles.item} to={routes.TOKEN}>
-                Authentication
-              </Link>
+              <button
+                type="button"
+                className={styles.item}
+                onClick={this.openImageDirectory}
+              >
+                Open Images Folder
+              </button>
               <div className={styles.item}>
                 <button
                   type="button"
@@ -56,6 +65,16 @@ export default class Settings extends Component<Props> {
                     name="exclamation-triangle"
                   />
                 </button>
+              </div>
+            </div>
+          </div>
+          <div className={styles.tableSettings}>
+            <div className={styles.tableSettingsContent}>
+              Network Settings
+              <div>
+                <Link className={styles.item} to={routes.TOKEN}>
+                  Authentication
+                </Link>
               </div>
             </div>
           </div>

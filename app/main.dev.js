@@ -11,7 +11,15 @@
  * @flow
  */
 
-import { app, BrowserWindow, Tray, ipcMain, Menu, MenuItem } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  Tray,
+  ipcMain,
+  Menu,
+  MenuItem,
+  shell
+} from 'electron';
 import path from 'path';
 import fs from 'fs';
 import MiscUtil from './utils/Util';
@@ -250,6 +258,10 @@ app.on('ready', async () => {
   });
   ipcMain.once('get-userpath2', (event, args) => {
     event.returnValue = dataPath.toString();
+  });
+
+  ipcMain.on('open-dir', (event, args) => {
+    shell.openItem(dataPath.toString() + `/NativeImages`);
   });
 
   createTray();
