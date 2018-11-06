@@ -19,8 +19,11 @@
 - [ ] Redo all of the styling to make the UI look better
 
 - [ ] Bug: If there are 2 screens and the icon is clicked it will split among the two screens
+<<<<<<< HEAD
 
 - [ ] Bug: Copying a high resolution image causes the app to slow down dramatically,
             // Idea: Down sample the preview images
 
 - [ ] Copy images to clipboard when the image is clicked on
+=======
+>>>>>>> 0f06af4e30e5782c520ecade0ca8fa442f8181d5
