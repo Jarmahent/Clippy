@@ -29,6 +29,15 @@ But if you wish to download it anyways:
 
 `-- Added minimize button to window`
 
+### `v(a0.83.0)` Changes:
+
+`-- Clippy now has the ability to connect to a server which saves all of your copies to be shared between devices(this feature will be off until the server comes online)`
+
+`-- Clippy now records images copied to the clipboard`
+<aside class="warning">
+Known Bug: Copying high quality images can cause Clippy to slow down very badly and will require that you clear the contents of the copied images folder and restart your computer!
+</aside>
+
 ---
 
 ## **Todo:**
