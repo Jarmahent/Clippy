@@ -8,6 +8,10 @@ import routes from '../constants/routes.json';
 import styles from './Settings.css';
 
 export default class Settings extends Component<Props> {
+  componentWillUnmount() {
+    ipcRenderer.removeAllListeners('open-dir', this.componentDidUpdate);
+  }
+
   clearDB = () => {
     const { resetTable } = this.props;
     resetTable();
