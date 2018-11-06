@@ -48,20 +48,30 @@ Known Bug: Copying high quality images can cause Clippy to slow down very badly 
 // to enable them install xcode and do: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 - [x] Add minimize option to the copytable view
-      // Added in v(a0.74.9)
 
-- [ ] IMPORTANT: Add ability for image copies to show on the table
+  // Added in v(a0.74.9)
 
+- [x] IMPORTANT: Add ability for image copies to show on the table
+      
+      // Added in v(0.83.0)
+      
 - [ ] Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere
 
-  // This feature is being worked on [here](https://github.com/Jarmahent/ClippyBackEnd)
+   // This feature is being worked on [here](https://github.com/Jarmahent/ClippyBackEnd)
 
 - [x] Why node gyp wont build some packages on windows with electron-rebuilder
 
       // Work around, delete all node modules and run yarn again.
 
-- [ ] Fix all eslint errors, currently they are being ignored with /_ eslint-disable _/
+- [x] Fix all eslint errors, currently they are being ignored with  /* eslint-disable */
 
 - [ ] Redo all of the styling to make the UI look better
 
 - [ ] Bug: If there are 2 screens and the icon is clicked it will split among the two screens
+
+- [ ] CRITICAL Bug: Copying a high resolution image causes the app to slow down dramatically
+
+            // Idea: Down sample the preview images
+
+- [ ] Copy images to clipboard when the image is clicked on
+
