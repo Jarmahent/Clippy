@@ -1,4 +1,4 @@
-# Clippy Using Electron React BoilerPlate v(a0.83.0)
+# Clippy Using Electron React BoilerPlate v(a0.83.7)
 
 [![CircleCI](https://circleci.com/gh/Jarmahent/Clippy.svg?style=svg)](https://circleci.com/gh/Jarmahent/Clippy)
 
@@ -37,6 +37,10 @@ But if you wish to download it anyways:
 <aside class="warning">
 Known Bug: Copying high quality images can cause Clippy to slow down very badly and will require that you clear the contents of the copied images folder and restart your computer!
 </aside>
+
+### `v(a0.83.5)` Minor Changes:
+
+`-- Clippy no longer copies unecessary image text information`
 
 ---
 
