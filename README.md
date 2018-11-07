@@ -34,6 +34,7 @@ But if you wish to download it anyways:
 `-- Clippy now has the ability to connect to a server which saves all of your copies to be shared between devices(this feature will be off until the server comes online)`
 
 `-- Clippy now records images copied to the clipboard`
+
 <aside class="warning">
 Known Bug: Copying high quality images can cause Clippy to slow down very badly and will require that you clear the contents of the copied images folder and restart your computer!
 </aside>
@@ -56,26 +57,27 @@ Known Bug: Copying high quality images can cause Clippy to slow down very badly 
   // Added in v(a0.74.9)
 
 - [x] IMPORTANT: Add ability for image copies to show on the table
-      
+
       // Added in v(0.83.0)
-      
+
 - [ ] Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere
 
-   // This feature is being worked on [here](https://github.com/Jarmahent/ClippyBackEnd)
+  // This feature is being worked on [here](https://github.com/Jarmahent/ClippyBackEnd)
 
 - [x] Why node gyp wont build some packages on windows with electron-rebuilder
 
       // Work around, delete all node modules and run yarn again.
 
-- [x] Fix all eslint errors, currently they are being ignored with  /* eslint-disable */
+- [x] Fix all eslint errors, currently they are being ignored with /_ eslint-disable _/
 
 - [ ] Redo all of the styling to make the UI look better
 
 - [ ] Bug: If there are 2 screens and the icon is clicked it will split among the two screens
 
-- [ ] CRITICAL Bug: Copying a high resolution image causes the app to slow down dramatically
+- [ ] Bug: Copying a high resolution image causes the app to slow down dramatically
 
             // Idea: Down sample the preview images
 
 - [ ] Copy images to clipboard when the image is clicked on
 
+- [ ] Move the database event to the main.dev.js file because copying text when the main component isnt in focus will not update the database

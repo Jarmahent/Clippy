@@ -8,9 +8,9 @@
   // Added in v(a0.74.9)
 
 - [x] IMPORTANT: Add ability for image copies to show on the table
-      
+
       // Added in v(0.83.0)
-      
+
 - [ ] Add Feature to connect Clippy to a backend server to access clipboard datafrom anywhere
 
    // This feature is being worked on [here](https://github.com/Jarmahent/ClippyBackEnd)
@@ -30,3 +30,5 @@
             // Idea: Down sample the preview images
 
 - [ ] Copy images to clipboard when the image is clicked on
+
+- [ ] Move the database event to the main.dev.js file because copying text when the main component isnt in focus will not update the database
