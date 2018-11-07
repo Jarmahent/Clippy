@@ -24,7 +24,7 @@ import path from 'path';
 import fs from 'fs';
 import MiscUtil from './utils/Util';
 
-const clipboardWatcher = require('electron-clipboard-watcher');
+const clipboardWatcher = require('./utils/ClipboardWatcher');
 
 const menu = new Menu();
 
@@ -90,7 +90,13 @@ clipboardWatcher({
     mainWindow.webContents.send('img-copy', 'newimage');
   },
   onTextChange: text => {
-    mainWindow.webContents.send('db-ch', text.toString());
+    if (text.isImage === true) {
+      console.log('Is Image');
+    } else {
+      console.log('This ran!');
+      mainWindow.webContents.send('db-ch', text.text.toString());
+    }
+    // console.log(`isImage: ${text.isImage}`)
   }
 });
 
