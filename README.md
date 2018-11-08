@@ -79,3 +79,5 @@ Known Bug: Copying high quality images can cause Clippy to slow down very badly 
 - [ ] Copy images to clipboard when the image is clicked on
 
 - [ ] Move the database event to the main.dev.js file because copying text when the main component isnt in focus will not update the database
+
+- [ ] Add tests to make deploying quicker and add them to CircleCI
