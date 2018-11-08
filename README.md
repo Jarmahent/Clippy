@@ -74,6 +74,8 @@ Known Bug: Copying high quality images can cause Clippy to slow down very badly 
 
 - [x] Bug: Copying a high resolution image causes the app to slow down dramatically
 
+            // Loading the text data onto the database took so long, the app became slow. -Fixed
+
 - [ ] Copy images to clipboard when the image is clicked on
 
 - [ ] Move the database event to the main.dev.js file because copying text when the main component isnt in focus will not update the database
