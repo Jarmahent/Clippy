@@ -4,7 +4,7 @@
 
 ### Android has it, why can't you?
 
-Clippy is a dynamic clipboarding app that tracks everything you have copied, incuding images(to be) and text.
+Clippy is a dynamic clipboarding app that tracks everything you have copied, incuding images and text.
 
 `This app is in Alpha and has ALOT of bugs!`
 But if you wish to download it anyways:
