@@ -250,11 +250,11 @@ app.on('ready', async () => {
   });
 
   mainWindow.on('blur', () => {
-    // mainWindow.hide();
+    mainWindow.hide();
   });
 
   ipcMain.on('minimize', (event, args) => {
-    toggleWindow();
+    mainWindow.hide();
     event.returnValue = 'Minimizing window...';
   });
 
