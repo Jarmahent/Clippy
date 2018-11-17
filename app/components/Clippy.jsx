@@ -13,9 +13,7 @@ export default class Clippy extends Component {
   constructor(props) {
     super(props);
     this.util = new MiscUtil();
-    this.NetworkController = new NetController(
-      '294dde275500d23b490cfbfc5ee5040aedff808e'
-    );
+    this.NetworkController = new NetController();
   }
 
   state = {
@@ -49,7 +47,7 @@ export default class Clippy extends Component {
         // Dont add the data to the db if its already there
         try {
           insertData(args, 'datehere');
-          this.NetworkController.sendData(args.toString(), 'date');
+          // this.NetworkController.sendData(args.toString(), 'date', '294dde275500d23b490cfbfc5ee5040aedff808e');
         } catch (error) {
           console.log(`Error ${error}`);
         }
