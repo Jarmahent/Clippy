@@ -41,6 +41,10 @@ Known Bug: Copying high quality images can cause Clippy to slow down very badly 
 
 `-- Fixed a bug where Clippy would slow down dramatically if a high resolution image was copied to the Clipboard`
 
+### `v(a0.83.8)` Minor Changes:
+
+`-- Clippy window now auto hides itself when you click away from it`
+
 ---
 
 ## **Todo:**

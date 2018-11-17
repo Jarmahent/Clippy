@@ -1,7 +1,7 @@
 {
   "name": "Clippy",
   "productName": "Clippy",
-  "version": "0.83.7",
+  "version": "0.83.8",
   "description": "App to keep constant track of all your copies",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
