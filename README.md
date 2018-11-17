@@ -1,4 +1,4 @@
-# Clippy Using Electron React BoilerPlate v(a0.83.5)
+# Clippy Using Electron React BoilerPlate v(a0.83.7)
 
 [![CircleCI](https://circleci.com/gh/Jarmahent/Clippy.svg?style=svg)](https://circleci.com/gh/Jarmahent/Clippy)
 
@@ -37,6 +37,10 @@ Known Bug: Copying high quality images can cause Clippy to slow down very badly 
 
 `-- Clippy no longer copies unecessary image text information`
 
+### `v(a0.83.7)` Minor Changes:
+
+`-- Fixed a bug where Clippy would slow down dramatically if a high resolution image was copied to the Clipboard`
+
 ---
 
 ## **Todo:**
@@ -62,16 +66,18 @@ Known Bug: Copying high quality images can cause Clippy to slow down very badly 
 
       // Work around, delete all node modules and run yarn again.
 
-- [x] Fix all eslint errors, currently they are being ignored with /_ eslint-disable _/
+- [x] Fix all eslint errors, currently they are being ignored with eslint-disable
 
 - [ ] Redo all of the styling to make the UI look better
 
 - [ ] Bug: If there are 2 screens and the icon is clicked it will split among the two screens
 
-- [ ] Bug: Copying a high resolution image causes the app to slow down dramatically
+- [x] Bug: Copying a high resolution image causes the app to slow down dramatically
 
-            // Idea: Down sample the preview images
+            // Loading the text data onto the database took so long, the app became slow. -Fixed
 
 - [ ] Copy images to clipboard when the image is clicked on
 
 - [ ] Move the database event to the main.dev.js file because copying text when the main component isnt in focus will not update the database
+
+- [ ] Add tests to make deploying quicker and add them to CircleCI

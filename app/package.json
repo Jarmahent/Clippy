@@ -1,7 +1,7 @@
 {
   "name": "Clippy",
   "productName": "Clippy",
-  "version": "0.83.0",
+  "version": "0.83.7",
   "description": "App to keep constant track of all your copies",
   "main": "./main.prod.js",
   "author": {
