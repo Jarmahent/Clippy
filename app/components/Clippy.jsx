@@ -37,6 +37,7 @@ export default class Clippy extends Component {
 
   componentDidUpdate() {
     const { insertData } = this.props;
+    const date = new Date();
 
     ipcRenderer.once('db-ch', (event, args) => {
       // const date = new Date();
@@ -47,7 +48,11 @@ export default class Clippy extends Component {
         // Dont add the data to the db if its already there
         try {
           insertData(args, 'datehere');
-          // this.NetworkController.sendData(args.toString(), 'date', '294dde275500d23b490cfbfc5ee5040aedff808e');
+          this.NetworkController.sendData(
+            args.toString(),
+            date.toString(),
+            '294dde275500d23b490cfbfc5ee5040aedff808e'
+          );
         } catch (error) {
           console.log(`Error ${error}`);
         }

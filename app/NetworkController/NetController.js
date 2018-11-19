@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 export default class NetController {
-  static sendData(content, dateData, accessToken) {
+  /* eslint-disable */
+  sendData(content, dateData, accessToken) {
     const config = {
       headers: {
         Authorization: `Token ${accessToken}`,
