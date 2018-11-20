@@ -84,6 +84,7 @@ export default class Routes extends Component {
             render={() => (
               <ClippyPage
                 insertData={this.insertData.bind(this)}
+                getToken={this.getToken.bind(this)}
                 getAllData={this.getAllData.bind(this)}
                 closeConnection={this.closeConnection.bind(this)}
               />

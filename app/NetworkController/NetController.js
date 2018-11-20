@@ -9,7 +9,6 @@ export default class NetController {
         Accept: 'application/json'
       }
     };
-    /* Date is currently not being sent becuase the backend server says its too long */
     console.log(dateData);
 
     axios
