@@ -345,6 +345,7 @@ h6 {
 }
 
 .btn-large {
+  flex: 1;
   padding: 6px 12px;
 }
 
