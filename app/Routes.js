@@ -97,6 +97,8 @@ export default class Routes extends Component {
               <SettingsPage
                 resetTable={this.resetTable.bind(this)}
                 clearImageDirectory={this.clearImageDirectory.bind(this)}
+                insertToken={this.insertToken.bind(this)}
+                getToken={this.getToken.bind(this)}
               />
             )}
           />

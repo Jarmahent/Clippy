@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import FontAwesome from 'react-fontawesome';
+// import FontAwesome from 'react-fontawesome';
 import styles from './TokenForm.css';
-import routes from '../constants/routes.json';
+// import routes from '../constants/routes.json';
+import photonStyles from './Photon/css/photon.css';
 
 export default class TokenForm extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class TokenForm extends Component {
     token: ''
   };
 
-  componentWillMount() {
+  componentDidMount() {
     const { getToken } = this.props;
     const data = getToken();
 
@@ -49,27 +50,30 @@ export default class TokenForm extends Component {
 
     return (
       <div>
-        <Link to={routes.SETTINGS} className={styles.arrowContainer}>
-          <FontAwesome className={styles.arrow} name="arrow-left" size="2x" />
-        </Link>
-        <div className={styles.subContainer}>
-          <div className={styles.formdiv}>
-            <form onSubmit={this.Login}>
-              <label>Authentication Token</label>
+        <div className={styles.secondContainer}>
+          <div className={styles.tokenTitle}>Authentication Token</div>
+          <form onSubmit={this.Login}>
+            <div className={photonStyles['form-group']}>
               <input
                 type="text"
                 name="token"
-                value={token}
+                className={photonStyles['form-control']}
+                placeholder={token}
                 onChange={this.handleChange}
               />
-              <br />
-              <input
-                type="submit"
-                className={styles.submitButton}
-                value="Save"
-              />
-            </form>
-          </div>
+              <div className={styles.saveBtn}>
+                <button
+                  type="button"
+                  className={[
+                    photonStyles.btn,
+                    photonStyles['btn-primary']
+                  ].join(' ')}
+                >
+                  Save Token
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     );

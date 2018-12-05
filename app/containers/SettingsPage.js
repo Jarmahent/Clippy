@@ -6,11 +6,18 @@ export default class SettingsPage extends Component {
   render() {
     /* eslint-disable */
 
-    const { resetTable, clearImageDirectory } = this.props;
+    const {
+      resetTable,
+      clearImageDirectory,
+      insertToken,
+      getToken
+    } = this.props;
     return (
       <Settings
         resetTable={resetTable}
         clearImageDirectory={clearImageDirectory}
+        insertToken={insertToken}
+        getToken={getToken}
       />
     );
   }

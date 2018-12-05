@@ -3,15 +3,6 @@
   display: flex;
   flex-wrap: wrap;
 }
-.seconContainer {
-  padding: 10px;
-}
-.tokenTitle {
-  text-align: center;
-  color: #333;
-  font-weight: bold;
-  font-size: 20px;
-}
 .backIcon {
   padding-left: 5px;
   position: absolute;

@@ -6,6 +6,7 @@ import { ipcRenderer } from 'electron';
 // import routes from '../constants/routes.json';
 import styles from './Settings.css';
 import photonStyles from './Photon/css/photon.css';
+import TokenForm from './TokenForm';
 
 export default class Settings extends Component<Props> {
   componentWillUnmount() {
@@ -27,6 +28,7 @@ export default class Settings extends Component<Props> {
   };
 
   render() {
+    const { getToken, insertToken } = this.props;
     return (
       <div>
         <div className={photonStyles.window}>
@@ -90,16 +92,7 @@ export default class Settings extends Component<Props> {
               Erase Image History
             </button>
           </div>
-          <div className={styles.seconContainer}>
-            <div className={styles.tokenTitle}>Authentication Token</div>
-            <div className={photonStyles['form-group']}>
-              <input
-                type="text"
-                className={photonStyles['form-control']}
-                placeholder="Token"
-              />
-            </div>
-          </div>
+          <TokenForm getToken={getToken} insertToken={insertToken} />
           <footer
             className={[
               photonStyles.toolbar,
