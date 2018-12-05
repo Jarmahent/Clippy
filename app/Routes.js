@@ -102,7 +102,8 @@ export default class Routes extends Component {
               />
             )}
           />
-          <Route
+          /*{' '}
+          <Route // Removing this route for now because its not being used.
             exact
             path={routes.TOKEN}
             render={() => (
@@ -111,7 +112,8 @@ export default class Routes extends Component {
                 getToken={this.getToken.bind(this)}
               />
             )}
-          />
+          />{' '}
+          */
           <Route
             exact
             path={routes.IMAGES}
