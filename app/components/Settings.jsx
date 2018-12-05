@@ -47,6 +47,7 @@ export default class Settings extends Component<Props> {
           </header>
           <div className={styles.mainContainer}>
             <button
+              onClick={this.clearDB}
               type="button"
               className={[
                 photonStyles.btn,
@@ -57,6 +58,7 @@ export default class Settings extends Component<Props> {
               Erase Clipboard History
             </button>
             <button
+              onClick={this.openImageDirectory}
               type="button"
               className={[
                 photonStyles.btn,
@@ -77,6 +79,7 @@ export default class Settings extends Component<Props> {
               Check Connection
             </button>
             <button
+              onClick={this.clearImgDir}
               type="button"
               className={[
                 photonStyles.btn,
