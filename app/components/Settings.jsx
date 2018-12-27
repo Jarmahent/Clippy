@@ -1,9 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ipcRenderer } from 'electron';
-// import routes from '../constants/routes.json';
+import routes from '../constants/routes.json';
 import styles from './Settings.css';
 import photonStyles from './Photon/css/photon.css';
 import TokenForm from './TokenForm';
@@ -38,13 +38,15 @@ export default class Settings extends Component<Props> {
               photonStyles['toolbar-header']
             ].join(' ')}
           >
-            <span
-              className={[
-                photonStyles.icon,
-                photonStyles['icon-back'],
-                styles.backIcon
-              ].join(' ')}
-            />
+            <Link to={routes.CLIPPY}>
+              <span
+                className={[
+                  photonStyles.icon,
+                  photonStyles['icon-back'],
+                  styles.backIcon
+                ].join(' ')}
+              />
+            </Link>
             Settings
           </header>
           <div className={styles.mainContainer}>
