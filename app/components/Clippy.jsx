@@ -23,9 +23,15 @@ export default class Clippy extends Component {
 
   componentDidMount() {
     // Initial data load from database this runs only once when the app starts
-
     const { getAllData, getToken } = this.props;
-    const token = getToken();
+
+    const gotToken = getToken();
+    const token =
+      (gotToken &&
+        gotToken.token &&
+        gotToken.token[0] &&
+        gotToken.token[0].token) ||
+      'No Token';
 
     const args = getAllData(25);
     const copyArray = [];
@@ -34,7 +40,7 @@ export default class Clippy extends Component {
     console.log('componentDidMount ran!');
     this.setState(() => ({
       clipArray: copyArray,
-      authToken: token[0].token
+      authToken: token
     }));
   }
 
