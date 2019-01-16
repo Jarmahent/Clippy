@@ -1,18 +1,14 @@
 import axios from 'axios';
 
 export default class NetController {
-  constructor(accessToken) {
-    this.accessToken = accessToken;
-  }
-
-  sendData(content, dateData) {
+  /* eslint-disable */
+  sendData(content, dateData, accessToken) {
     const config = {
       headers: {
-        Authorization: `Token ${this.accessToken}`,
+        Authorization: `Token ${accessToken}`,
         Accept: 'application/json'
       }
     };
-    // Date is too long fix that
     console.log(dateData);
 
     axios

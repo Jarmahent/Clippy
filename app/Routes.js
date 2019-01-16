@@ -84,6 +84,7 @@ export default class Routes extends Component {
             render={() => (
               <ClippyPage
                 insertData={this.insertData.bind(this)}
+                getToken={this.getToken.bind(this)}
                 getAllData={this.getAllData.bind(this)}
                 closeConnection={this.closeConnection.bind(this)}
               />
@@ -96,10 +97,13 @@ export default class Routes extends Component {
               <SettingsPage
                 resetTable={this.resetTable.bind(this)}
                 clearImageDirectory={this.clearImageDirectory.bind(this)}
+                insertToken={this.insertToken.bind(this)}
+                getToken={this.getToken.bind(this)}
               />
             )}
           />
-          <Route
+          /*{' '}
+          <Route // Removing this route for now because its not being used.
             exact
             path={routes.TOKEN}
             render={() => (
@@ -108,7 +112,8 @@ export default class Routes extends Component {
                 getToken={this.getToken.bind(this)}
               />
             )}
-          />
+          />{' '}
+          */
           <Route
             exact
             path={routes.IMAGES}

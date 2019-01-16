@@ -13,19 +13,19 @@ export default class Clippy extends Component {
   constructor(props) {
     super(props);
     this.util = new MiscUtil();
-    this.NetworkController = new NetController(
-      '294dde275500d23b490cfbfc5ee5040aedff808e'
-    );
+    this.NetworkController = new NetController();
   }
 
   state = {
-    clipArray: []
+    clipArray: [],
+    authToken: 'No Token'
   };
 
   componentDidMount() {
     // Initial data load from database this runs only once when the app starts
 
-    const { getAllData } = this.props;
+    const { getAllData, getToken } = this.props;
+    const token = getToken();
 
     const args = getAllData(25);
     const copyArray = [];
@@ -33,23 +33,29 @@ export default class Clippy extends Component {
     args.map((name, index) => copyArray.push(args[index].data));
     console.log('componentDidMount ran!');
     this.setState(() => ({
-      clipArray: copyArray
+      clipArray: copyArray,
+      authToken: token[0].token
     }));
   }
 
   componentDidUpdate() {
     const { insertData } = this.props;
+    const date = new Date();
 
     ipcRenderer.once('db-ch', (event, args) => {
       // const date = new Date();
 
-      const { clipArray } = this.state;
+      const { clipArray, authToken } = this.state;
 
       if (!clipArray.includes(args.toString())) {
         // Dont add the data to the db if its already there
         try {
           insertData(args, 'datehere');
-          this.NetworkController.sendData(args.toString(), 'date');
+          this.NetworkController.sendData(
+            args.toString(),
+            date.toString(),
+            authToken
+          );
         } catch (error) {
           console.log(`Error ${error}`);
         }
@@ -121,5 +127,6 @@ export default class Clippy extends Component {
 
 Clippy.propTypes = {
   getAllData: PropTypes.func,
-  insertData: PropTypes.func
+  insertData: PropTypes.func,
+  getToken: PropTypes.func
 };

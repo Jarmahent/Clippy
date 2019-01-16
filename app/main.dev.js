@@ -249,9 +249,9 @@ app.on('ready', async () => {
     mainWindow = null;
   });
 
-  mainWindow.on('blur', () => {
-    mainWindow.hide();
-  });
+  // mainWindow.on('blur', () => {
+  //   mainWindow.hide();
+  // });
 
   ipcMain.on('minimize', (event, args) => {
     mainWindow.hide();
