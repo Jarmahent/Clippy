@@ -63,7 +63,7 @@ export default class TokenForm extends Component {
               />
               <div className={styles.saveBtn}>
                 <button
-                  type="button"
+                  type="submit"
                   className={[
                     photonStyles.btn,
                     photonStyles['btn-primary']
