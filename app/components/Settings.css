@@ -8,3 +8,6 @@
   position: absolute;
   left: 0;
 }
+.backButton span {
+  color: black;
+}

@@ -30,7 +30,7 @@ export default class Settings extends Component<Props> {
   render() {
     const { getToken, insertToken } = this.props;
     return (
-      <div>
+      <div className={styles.backButton}>
         <div className={photonStyles.window}>
           <header
             className={[
