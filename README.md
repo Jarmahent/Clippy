@@ -1,3 +1,5 @@
+I am done with this app i am no longer making changes to it, if you want to take it and modify it go ahead i dont care just be ready for the plethera of bugs that come with it.
+
 # Clippy Using Electron React BoilerPlate v(a0.83.7)
 
 [![CircleCI](https://circleci.com/gh/Jarmahent/Clippy.svg?style=svg)](https://circleci.com/gh/Jarmahent/Clippy)
